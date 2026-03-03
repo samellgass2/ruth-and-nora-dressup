@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruth & Nora Dress Up</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <p class="eyebrow">Dress Up Studio</p>
+        <h1>Ruth & Nora</h1>
+        <p class="subtitle">
+          Pick a sprite, hit switch, and watch the idle animation come to life.
+        </p>
+      </header>
+
+      <section class="stage" aria-live="polite">
+        <div class="sprite-frame">
+          <div
+            id="sprite"
+            class="sprite"
+            role="img"
+            aria-label="Ruth sprite"
+          ></div>
+        </div>
+        <div class="stage-meta">
+          <div class="label">Currently showing</div>
+          <div id="current-name" class="name">Ruth</div>
+        </div>
+      </section>
+
+      <section class="controls">
+        <button id="switch" class="switch" type="button">
+          Switch to Nora
+        </button>
+      </section>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
