@@ -21,7 +21,10 @@ const FRAME_DURATION = 120;
 
 let activeName = "Ruth";
 let frameIndex = 0;
-let timerId = null;
+let animationId = null;
+let lastFrameTime = 0;
+const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let prefersReducedMotion = motionQuery.matches;
 
 function applySprite(name) {
   const config = SPRITE_CONFIG[name];
@@ -33,35 +36,61 @@ function applySprite(name) {
   }px`;
 
   frameIndex = 0;
-  updateFrame(totalFrames);
+  renderFrame(frameIndex, config);
   currentName.textContent = name;
   sprite.setAttribute("aria-label", `${name} sprite`);
   switchButton.textContent = `Switch to ${name === "Ruth" ? "Nora" : "Ruth"}`;
 }
 
-function updateFrame(totalFrames) {
-  const column = frameIndex % SPRITE_CONFIG[activeName].columns;
-  const row = Math.floor(frameIndex / SPRITE_CONFIG[activeName].columns);
+function renderFrame(frame, config) {
+  const column = frame % config.columns;
+  const row = Math.floor(frame / config.columns);
 
   const x = -(column * FRAME_WIDTH);
   const y = -(row * FRAME_HEIGHT);
 
   sprite.style.backgroundPosition = `${x}px ${y}px`;
+}
 
+function advanceFrame(totalFrames) {
+  const config = SPRITE_CONFIG[activeName];
+  renderFrame(frameIndex, config);
   frameIndex = (frameIndex + 1) % totalFrames;
 }
 
 function startAnimation() {
-  if (timerId) {
-    clearInterval(timerId);
+  stopAnimation();
+  if (prefersReducedMotion) {
+    return;
   }
 
   const totalFrames =
     SPRITE_CONFIG[activeName].columns * SPRITE_CONFIG[activeName].rows;
 
-  timerId = setInterval(() => {
-    updateFrame(totalFrames);
-  }, FRAME_DURATION);
+  const tick = (timestamp) => {
+    if (!lastFrameTime) {
+      lastFrameTime = timestamp;
+    }
+    const elapsed = timestamp - lastFrameTime;
+    if (elapsed >= FRAME_DURATION) {
+      const steps = Math.floor(elapsed / FRAME_DURATION);
+      for (let i = 0; i < steps; i += 1) {
+        advanceFrame(totalFrames);
+      }
+      lastFrameTime += steps * FRAME_DURATION;
+    }
+    animationId = window.requestAnimationFrame(tick);
+  };
+
+  animationId = window.requestAnimationFrame(tick);
+}
+
+function stopAnimation() {
+  if (animationId) {
+    window.cancelAnimationFrame(animationId);
+    animationId = null;
+  }
+  lastFrameTime = 0;
 }
 
 switchButton.addEventListener("click", () => {
@@ -72,3 +101,9 @@ switchButton.addEventListener("click", () => {
 
 applySprite(activeName);
 startAnimation();
+
+motionQuery.addEventListener("change", (event) => {
+  prefersReducedMotion = event.matches;
+  applySprite(activeName);
+  startAnimation();
+});

@@ -2,7 +2,8 @@
 
 Summary:
 - Built a main page layout with hero, sprite stage, and controls.
-- Added sprite animation loop with a switch button to toggle Ruth/Nora.
+- Reworked sprite animation to use requestAnimationFrame with time-based stepping.
+- Added prefers-reduced-motion handling to pause the loop while keeping frame 0 visible.
 - Styled the layout with a focused, responsive presentation.
 
 Tests:
