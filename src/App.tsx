@@ -24,6 +24,7 @@ type ItemPlacement = {
   y: number;
   scaleMultiplier: number;
   anchor?: [number, number];
+  attachTo?: "head" | "body";
 };
 
 type EquipItem = {
@@ -52,8 +53,8 @@ const INVENTORY_ITEMS: EquipItem[] = [
     slot: "head",
     textureUrl: "/items/ball_cap.png",
     placements: {
-      Ruth: { x: 0, y: -86, scaleMultiplier: 1.08, anchor: [0.5, 1] },
-      Nora: { x: 0, y: -84, scaleMultiplier: 1.02, anchor: [0.5, 1] },
+      Ruth: { x: 0, y: -10, scaleMultiplier: 1.08, anchor: [0.5, 1], attachTo: "head" },
+      Nora: { x: 0, y: -10, scaleMultiplier: 1.02, anchor: [0.5, 1], attachTo: "head" },
     },
   },
 ];
@@ -99,6 +100,7 @@ export default function App() {
           y: placement.y,
           scaleMultiplier: placement.scaleMultiplier,
           anchor: placement.anchor,
+          attachTo: placement.attachTo,
         };
       });
   }, [equippedBySlot, activeCharacter]);
