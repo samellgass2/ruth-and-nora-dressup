@@ -3,37 +3,38 @@
 ## Task
 - Project: `ruth-and-nora-dress-up`
 - Workflow: `Add head and body tracking to sprites`
-- TASK_ID: `51`
-- RUN_ID: `125`
-- Title: `Add head tracking for black terrier`
+- TASK_ID: `53`
+- RUN_ID: `127`
+- Title: `Update inventory with new items`
 
 ## Summary of Changes
-- Added a dedicated `Black Terrier` character option in the character rotation.
-- Added black terrier runtime sprite assets:
-  - `/public/sprites/black_terrier_sheet_pixel128_c24_i.json`
-  - `/public/sprites/black_terrier_sheet_pixel128_c24_i.png`
-- Added a new head item: `Midnight Witch Hat` (`/public/items/witch_hat.png`).
-- Configured witch hat placement to `attachTo: "head"` for all characters, including `Black Terrier`.
-- Set default active character to `Black Terrier` so witch hat head tracking can be verified immediately.
-- Updated switch logic to support cycling through 3 characters (`Ruth`, `Nora`, `Black Terrier`).
+- Updated inventory item definitions in `src/App.tsx` to include all requested items:
+  - `Baseball Cap` (head slot)
+  - `Witch Hat` (head slot)
+  - `Ruby Collar` (body slot)
+  - `Sky Collar` (body slot)
+- Kept item equip behavior config-driven so all listed items are selectable from the Inventory panel.
+- Added two new item textures for collar items:
+  - `/public/items/collar_ruby.png`
+  - `/public/items/collar_sky.png`
 
 ## Files Changed
 - `src/App.tsx`
-- `public/items/witch_hat.png`
-- `public/sprites/black_terrier_sheet_pixel128_c24_i.json`
-- `public/sprites/black_terrier_sheet_pixel128_c24_i.png`
+- `public/items/collar_ruby.png`
+- `public/items/collar_sky.png`
 - `TASK_REPORT.md`
 
 ## Verification
 Commands run:
-- `npm install`
 - `npx tsc --noEmit` (PASS)
 - `npm run build` (PASS)
 
-Acceptance criteria check:
-- Equip `Midnight Witch Hat` from inventory and keep `Black Terrier` active.
-- Witch hat uses `attachTo: "head"` and updates per-frame with sprite movement, following head motion.
+Acceptance checks:
+- New items are listed in Inventory and Shop via `INVENTORY_ITEMS` mapping in `App.tsx`.
+- New items are selectable via shared equip/unequip click handler:
+  - Clicking an item equips it into its slot.
+  - Clicking the equipped item again unequips it.
+- Collars are configured for the `body` attachment and rendered through existing accessory layer logic.
 
 ## Notes
-- Head tracking behavior relies on frame-level hints already computed in `SpriteActor`.
-- The witch hat uses a bottom-center anchor (`[0.5, 1]`) with black terrier head-relative offsets.
+- Two collars were added to satisfy the plural requirement for collar items.

@@ -54,8 +54,8 @@ const CHARACTER_ROTATION: Character[] = ["Ruth", "Nora", "Black Terrier"];
 
 const INVENTORY_ITEMS: EquipItem[] = [
   {
-    id: "ball-cap-classic",
-    name: "Classic Ball Cap",
+    id: "baseball-cap-classic",
+    name: "Baseball Cap",
     slot: "head",
     textureUrl: "/items/ball_cap.png",
     placements: {
@@ -66,7 +66,7 @@ const INVENTORY_ITEMS: EquipItem[] = [
   },
   {
     id: "witch-hat-midnight",
-    name: "Midnight Witch Hat",
+    name: "Witch Hat",
     slot: "head",
     textureUrl: "/items/witch_hat.png",
     placements: {
@@ -79,6 +79,28 @@ const INVENTORY_ITEMS: EquipItem[] = [
         anchor: [0.5, 1],
         attachTo: "head",
       },
+    },
+  },
+  {
+    id: "collar-ruby",
+    name: "Ruby Collar",
+    slot: "body",
+    textureUrl: "/items/collar_ruby.png",
+    placements: {
+      Ruth: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
+      Nora: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
+      "Black Terrier": { x: 0, y: -10, scaleMultiplier: 1.05, anchor: [0.5, 0.35], attachTo: "body" },
+    },
+  },
+  {
+    id: "collar-sky",
+    name: "Sky Collar",
+    slot: "body",
+    textureUrl: "/items/collar_sky.png",
+    placements: {
+      Ruth: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
+      Nora: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
+      "Black Terrier": { x: 0, y: -10, scaleMultiplier: 1.05, anchor: [0.5, 0.35], attachTo: "body" },
     },
   },
 ];
