@@ -33,6 +33,32 @@ body {
   gap: 32px;
 }
 
+.main-menu {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.menu-link {
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: #fff6ea;
+  border: 1px solid rgba(17, 17, 24, 0.1);
+  box-shadow: 0 8px 16px rgba(17, 17, 24, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-link:hover,
+.menu-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 20px rgba(17, 17, 24, 0.12);
+  outline: none;
+}
+
 .hero {
   display: grid;
   gap: 12px;
@@ -137,6 +163,74 @@ h1 {
 
 .switch:active {
   transform: translateY(0);
+}
+
+.menu-sections {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.menu-card {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 18px 28px rgba(17, 17, 24, 0.12);
+  border: 1px solid rgba(17, 17, 24, 0.08);
+}
+
+.menu-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Space Grotesk", "Arial", sans-serif;
+}
+
+.menu-card-label {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: rgba(17, 17, 24, 0.6);
+}
+
+.menu-card-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 180, 128, 0.45);
+}
+
+.menu-card h2 {
+  font-size: 1.4rem;
+}
+
+.menu-card p {
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.menu-card-link {
+  justify-self: start;
+  font-family: "Space Grotesk", "Arial", sans-serif;
+  text-decoration: none;
+  color: #201f24;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 18px rgba(240, 107, 87, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-card-link:hover,
+.menu-card-link:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 22px rgba(240, 107, 87, 0.35);
+  outline: none;
 }
 
 @media (max-width: 720px) {
