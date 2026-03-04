@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { SpriteActor, type AccessoryLayer } from "./components/SpriteActor";
 
-type Character = "Ruth" | "Nora";
+type Character = "Ruth" | "Nora" | "Black Terrier";
 type SequenceMode = "idle" | "action";
 type ItemSlot = "head" | "body";
 
@@ -44,7 +44,13 @@ const CHARACTER_CONFIG: Record<Character, CharacterConfig> = {
     atlasUrl: "/sprites/nora_sheet_pixel128_c24_i.json",
     sheetUrl: "/sprites/nora_sheet_pixel128_c24_i.png",
   },
+  "Black Terrier": {
+    atlasUrl: "/sprites/black_terrier_sheet_pixel128_c24_i.json",
+    sheetUrl: "/sprites/black_terrier_sheet_pixel128_c24_i.png",
+  },
 };
+
+const CHARACTER_ROTATION: Character[] = ["Ruth", "Nora", "Black Terrier"];
 
 const INVENTORY_ITEMS: EquipItem[] = [
   {
@@ -55,6 +61,24 @@ const INVENTORY_ITEMS: EquipItem[] = [
     placements: {
       Ruth: { x: 0, y: -10, scaleMultiplier: 1.08, anchor: [0.5, 1], attachTo: "head" },
       Nora: { x: 0, y: -10, scaleMultiplier: 1.02, anchor: [0.5, 1], attachTo: "head" },
+      "Black Terrier": { x: 0, y: -10, scaleMultiplier: 1.08, anchor: [0.5, 1], attachTo: "head" },
+    },
+  },
+  {
+    id: "witch-hat-midnight",
+    name: "Midnight Witch Hat",
+    slot: "head",
+    textureUrl: "/items/witch_hat.png",
+    placements: {
+      Ruth: { x: -1, y: -8, scaleMultiplier: 1.08, anchor: [0.5, 1], attachTo: "head" },
+      Nora: { x: 0, y: -8, scaleMultiplier: 1.05, anchor: [0.5, 1], attachTo: "head" },
+      "Black Terrier": {
+        x: 0,
+        y: -6,
+        scaleMultiplier: 1.12,
+        anchor: [0.5, 1],
+        attachTo: "head",
+      },
     },
   },
 ];
@@ -62,7 +86,7 @@ const INVENTORY_ITEMS: EquipItem[] = [
 const ACTION_EVERY_IDLE_LOOPS = 5;
 
 export default function App() {
-  const [activeCharacter, setActiveCharacter] = useState<Character>("Ruth");
+  const [activeCharacter, setActiveCharacter] = useState<Character>("Black Terrier");
   const [sequenceMode, setSequenceMode] = useState<SequenceMode>("idle");
   const [viewportWidth, setViewportWidth] = useState<number>(window.innerWidth);
   const [idleLoops, setIdleLoops] = useState<number>(0);
@@ -70,7 +94,13 @@ export default function App() {
   const [actionFrameKeys, setActionFrameKeys] = useState<string[]>([]);
   const [equippedBySlot, setEquippedBySlot] = useState<Partial<Record<ItemSlot, string>>>({});
 
-  const nextCharacter: Character = activeCharacter === "Ruth" ? "Nora" : "Ruth";
+  const nextCharacter: Character = useMemo(() => {
+    const activeIndex = CHARACTER_ROTATION.indexOf(activeCharacter);
+    if (activeIndex === -1) {
+      return CHARACTER_ROTATION[0];
+    }
+    return CHARACTER_ROTATION[(activeIndex + 1) % CHARACTER_ROTATION.length];
+  }, [activeCharacter]);
 
   const characterConfig = useMemo(
     () => CHARACTER_CONFIG[activeCharacter],

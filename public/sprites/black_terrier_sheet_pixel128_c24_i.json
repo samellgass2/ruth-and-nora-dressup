@@ -1,0 +1,755 @@
+{
+  "frames": {
+    "ruth_idle_000": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 64,
+        "y": 128
+      }
+    },
+    "ruth_idle_001": {
+      "frame": {
+        "x": 128,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 192,
+        "y": 128
+      }
+    },
+    "ruth_idle_002": {
+      "frame": {
+        "x": 256,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 320,
+        "y": 128
+      }
+    },
+    "ruth_idle_003": {
+      "frame": {
+        "x": 384,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 448,
+        "y": 128
+      }
+    },
+    "ruth_idle_004": {
+      "frame": {
+        "x": 512,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 576,
+        "y": 128
+      }
+    },
+    "ruth_idle_005": {
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 704,
+        "y": 128
+      }
+    },
+    "ruth_idle_006": {
+      "frame": {
+        "x": 768,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 832,
+        "y": 128
+      }
+    },
+    "ruth_idle_007": {
+      "frame": {
+        "x": 896,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 960,
+        "y": 128
+      }
+    },
+    "ruth_action_000": {
+      "frame": {
+        "x": 0,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 64,
+        "y": 256
+      }
+    },
+    "ruth_action_001": {
+      "frame": {
+        "x": 128,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 192,
+        "y": 256
+      }
+    },
+    "ruth_action_002": {
+      "frame": {
+        "x": 256,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 320,
+        "y": 256
+      }
+    },
+    "ruth_action_003": {
+      "frame": {
+        "x": 384,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 448,
+        "y": 256
+      }
+    },
+    "ruth_action_004": {
+      "frame": {
+        "x": 512,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 576,
+        "y": 256
+      }
+    },
+    "ruth_action_005": {
+      "frame": {
+        "x": 640,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 704,
+        "y": 256
+      }
+    },
+    "ruth_action_006": {
+      "frame": {
+        "x": 768,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 832,
+        "y": 256
+      }
+    },
+    "ruth_action_007": {
+      "frame": {
+        "x": 896,
+        "y": 128,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 960,
+        "y": 256
+      }
+    },
+    "ruth_action_008": {
+      "frame": {
+        "x": 0,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 64,
+        "y": 384
+      }
+    },
+    "ruth_action_009": {
+      "frame": {
+        "x": 128,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 192,
+        "y": 384
+      }
+    },
+    "ruth_action_010": {
+      "frame": {
+        "x": 256,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 320,
+        "y": 384
+      }
+    },
+    "ruth_action_011": {
+      "frame": {
+        "x": 384,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 448,
+        "y": 384
+      }
+    },
+    "ruth_action_012": {
+      "frame": {
+        "x": 512,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 576,
+        "y": 384
+      }
+    },
+    "ruth_action_013": {
+      "frame": {
+        "x": 640,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 704,
+        "y": 384
+      }
+    },
+    "ruth_action_014": {
+      "frame": {
+        "x": 768,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 832,
+        "y": 384
+      }
+    },
+    "ruth_action_015": {
+      "frame": {
+        "x": 896,
+        "y": 256,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 960,
+        "y": 384
+      }
+    },
+    "ruth_action_016": {
+      "frame": {
+        "x": 0,
+        "y": 384,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 64,
+        "y": 512
+      }
+    },
+    "ruth_action_017": {
+      "frame": {
+        "x": 128,
+        "y": 384,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 192,
+        "y": 512
+      }
+    },
+    "ruth_action_018": {
+      "frame": {
+        "x": 256,
+        "y": 384,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 320,
+        "y": 512
+      }
+    },
+    "ruth_action_019": {
+      "frame": {
+        "x": 384,
+        "y": 384,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 448,
+        "y": 512
+      }
+    },
+    "ruth_action_020": {
+      "frame": {
+        "x": 512,
+        "y": 384,
+        "w": 128,
+        "h": 128
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 128,
+        "h": 128
+      },
+      "sourceSize": {
+        "w": 128,
+        "h": 128
+      },
+      "anchorHint": {
+        "x": 576,
+        "y": 512
+      }
+    }
+  },
+  "meta": {
+    "image": "ruth_sheet_pixel128_c24_i.png",
+    "size": {
+      "w": 1024,
+      "h": 512
+    },
+    "cols": 8,
+    "rows": 4,
+    "cell": {
+      "w": 128,
+      "h": 128
+    },
+    "sequences": {
+      "idle": [
+        "ruth_idle_000",
+        "ruth_idle_001",
+        "ruth_idle_002",
+        "ruth_idle_003",
+        "ruth_idle_004",
+        "ruth_idle_005",
+        "ruth_idle_006",
+        "ruth_idle_007"
+      ],
+      "action": [
+        "ruth_action_000",
+        "ruth_action_001",
+        "ruth_action_002",
+        "ruth_action_003",
+        "ruth_action_004",
+        "ruth_action_005",
+        "ruth_action_006",
+        "ruth_action_007",
+        "ruth_action_008",
+        "ruth_action_009",
+        "ruth_action_010",
+        "ruth_action_011",
+        "ruth_action_012",
+        "ruth_action_013",
+        "ruth_action_014",
+        "ruth_action_015",
+        "ruth_action_016",
+        "ruth_action_017",
+        "ruth_action_018",
+        "ruth_action_019",
+        "ruth_action_020"
+      ]
+    },
+    "generated": {
+      "pipeline": "split(idle/action)+fit(128x128,bottom-center)+interpolate+nearest-pixelate+quantize",
+      "colors": 24,
+      "pixelateFactor": 2,
+      "idleSourceFrames": 3,
+      "actionSourceFrames": 9
+    }
+  }
+}
