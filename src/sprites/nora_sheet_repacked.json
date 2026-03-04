@@ -1,0 +1,379 @@
+{
+  "frames": {
+    "nora_00": {
+      "frame": {
+        "x": 121,
+        "y": 24,
+        "w": 217,
+        "h": 316
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 217,
+        "h": 316
+      },
+      "sourceSize": {
+        "w": 217,
+        "h": 316
+      },
+      "anchorHint": {
+        "x": 229,
+        "y": 340
+      }
+    },
+    "nora_01": {
+      "frame": {
+        "x": 568,
+        "y": 26,
+        "w": 240,
+        "h": 314
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 240,
+        "h": 314
+      },
+      "sourceSize": {
+        "w": 240,
+        "h": 314
+      },
+      "anchorHint": {
+        "x": 688,
+        "y": 340
+      }
+    },
+    "nora_02": {
+      "frame": {
+        "x": 1004,
+        "y": 26,
+        "w": 287,
+        "h": 314
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 287,
+        "h": 314
+      },
+      "sourceSize": {
+        "w": 287,
+        "h": 314
+      },
+      "anchorHint": {
+        "x": 1147,
+        "y": 340
+      }
+    },
+    "nora_03": {
+      "frame": {
+        "x": 1470,
+        "y": 27,
+        "w": 273,
+        "h": 313
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 273,
+        "h": 313
+      },
+      "sourceSize": {
+        "w": 273,
+        "h": 313
+      },
+      "anchorHint": {
+        "x": 1606,
+        "y": 340
+      }
+    },
+    "nora_04": {
+      "frame": {
+        "x": 1966,
+        "y": 28,
+        "w": 198,
+        "h": 312
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 198,
+        "h": 312
+      },
+      "sourceSize": {
+        "w": 198,
+        "h": 312
+      },
+      "anchorHint": {
+        "x": 2065,
+        "y": 340
+      }
+    },
+    "nora_05": {
+      "frame": {
+        "x": 113,
+        "y": 368,
+        "w": 232,
+        "h": 312
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 232,
+        "h": 312
+      },
+      "sourceSize": {
+        "w": 232,
+        "h": 312
+      },
+      "anchorHint": {
+        "x": 229,
+        "y": 680
+      }
+    },
+    "nora_06": {
+      "frame": {
+        "x": 553,
+        "y": 405,
+        "w": 270,
+        "h": 275
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 270,
+        "h": 275
+      },
+      "sourceSize": {
+        "w": 270,
+        "h": 275
+      },
+      "anchorHint": {
+        "x": 688,
+        "y": 680
+      }
+    },
+    "nora_07": {
+      "frame": {
+        "x": 931,
+        "y": 404,
+        "w": 432,
+        "h": 276
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 432,
+        "h": 276
+      },
+      "sourceSize": {
+        "w": 432,
+        "h": 276
+      },
+      "anchorHint": {
+        "x": 1147,
+        "y": 680
+      }
+    },
+    "nora_08": {
+      "frame": {
+        "x": 1477,
+        "y": 416,
+        "w": 258,
+        "h": 264
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 258,
+        "h": 264
+      },
+      "sourceSize": {
+        "w": 258,
+        "h": 264
+      },
+      "anchorHint": {
+        "x": 1606,
+        "y": 680
+      }
+    },
+    "nora_09": {
+      "frame": {
+        "x": 1937,
+        "y": 416,
+        "w": 256,
+        "h": 264
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 256,
+        "h": 264
+      },
+      "sourceSize": {
+        "w": 256,
+        "h": 264
+      },
+      "anchorHint": {
+        "x": 2065,
+        "y": 680
+      }
+    },
+    "nora_10": {
+      "frame": {
+        "x": 99,
+        "y": 766,
+        "w": 261,
+        "h": 254
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 261,
+        "h": 254
+      },
+      "sourceSize": {
+        "w": 261,
+        "h": 254
+      },
+      "anchorHint": {
+        "x": 229,
+        "y": 1020
+      }
+    },
+    "nora_11": {
+      "frame": {
+        "x": 471,
+        "y": 769,
+        "w": 435,
+        "h": 251
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 435,
+        "h": 251
+      },
+      "sourceSize": {
+        "w": 435,
+        "h": 251
+      },
+      "anchorHint": {
+        "x": 688,
+        "y": 1020
+      }
+    },
+    "nora_12": {
+      "frame": {
+        "x": 1020,
+        "y": 778,
+        "w": 254,
+        "h": 242
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 254,
+        "h": 242
+      },
+      "sourceSize": {
+        "w": 254,
+        "h": 242
+      },
+      "anchorHint": {
+        "x": 1147,
+        "y": 1020
+      }
+    },
+    "nora_13": {
+      "frame": {
+        "x": 1480,
+        "y": 786,
+        "w": 253,
+        "h": 234
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 253,
+        "h": 234
+      },
+      "sourceSize": {
+        "w": 253,
+        "h": 234
+      },
+      "anchorHint": {
+        "x": 1606,
+        "y": 1020
+      }
+    },
+    "nora_14": {
+      "frame": {
+        "x": 1927,
+        "y": 790,
+        "w": 276,
+        "h": 230
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 276,
+        "h": 230
+      },
+      "sourceSize": {
+        "w": 276,
+        "h": 230
+      },
+      "anchorHint": {
+        "x": 2065,
+        "y": 1020
+      }
+    }
+  },
+  "meta": {
+    "app": "janet-spritesheet-repacker",
+    "image": "nora_sheet_repacked.png",
+    "size": {
+      "w": 2295,
+      "h": 1020
+    },
+    "scale": "1",
+    "cell": {
+      "w": 459,
+      "h": 340
+    },
+    "cols": 5,
+    "rows": 3
+  }
+}

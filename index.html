@@ -1,75 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ruth & Nora Dress Up</title>
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
-      <nav class="main-menu" aria-label="Studio menu">
-        <a class="menu-link" href="#item-shop">Item Shop</a>
-        <a class="menu-link" href="#inventory">Inventory</a>
-      </nav>
-      <header class="hero">
-        <p class="eyebrow">Dress Up Studio</p>
-        <h1>Ruth & Nora</h1>
-        <p class="subtitle">
-          Pick a sprite, hit switch, and watch the idle animation come to life.
-        </p>
-      </header>
-
-      <section class="stage" aria-live="polite">
-        <div class="sprite-frame">
-          <div
-            id="sprite"
-            class="sprite"
-            role="img"
-            aria-label="Ruth sprite"
-          ></div>
-        </div>
-        <div class="stage-meta">
-          <div class="label">Currently showing</div>
-          <div id="current-name" class="name">Ruth</div>
-        </div>
-      </section>
-
-      <section class="controls">
-        <button id="switch" class="switch" type="button">
-          Switch to Nora
-        </button>
-      </section>
-
-      <section class="menu-sections" aria-label="Menu previews">
-        <article id="item-shop" class="menu-card">
-          <div class="menu-card-header">
-            <p class="menu-card-label">Item Shop</p>
-            <span class="menu-card-tag">Stub</span>
-          </div>
-          <h2>Coming Soon</h2>
-          <p>
-            Browse outfits, accessories, and seasonal collections once the shop
-            opens.
-          </p>
-          <a class="menu-card-link" href="#item-shop">Preview Shop</a>
-        </article>
-
-        <article id="inventory" class="menu-card">
-          <div class="menu-card-header">
-            <p class="menu-card-label">Inventory</p>
-            <span class="menu-card-tag">Stub</span>
-          </div>
-          <h2>Closet Snapshot</h2>
-          <p>
-            Keep track of unlocked pieces, favorite sets, and quick-change
-            looks here.
-          </p>
-          <a class="menu-card-link" href="#inventory">Open Inventory</a>
-        </article>
-      </section>
-    </main>
-
-    <script src="main.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

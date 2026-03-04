@@ -1,0 +1,307 @@
+{
+  "frames": {
+    "ruth_00": {
+      "frame": {
+        "x": 77,
+        "y": 24,
+        "w": 305,
+        "h": 319
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 305,
+        "h": 319
+      },
+      "sourceSize": {
+        "w": 305,
+        "h": 319
+      },
+      "anchorHint": {
+        "x": 229,
+        "y": 343
+      }
+    },
+    "ruth_01": {
+      "frame": {
+        "x": 547,
+        "y": 24,
+        "w": 286,
+        "h": 319
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 286,
+        "h": 319
+      },
+      "sourceSize": {
+        "w": 286,
+        "h": 319
+      },
+      "anchorHint": {
+        "x": 690,
+        "y": 343
+      }
+    },
+    "ruth_02": {
+      "frame": {
+        "x": 1007,
+        "y": 24,
+        "w": 286,
+        "h": 319
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 286,
+        "h": 319
+      },
+      "sourceSize": {
+        "w": 286,
+        "h": 319
+      },
+      "anchorHint": {
+        "x": 1150,
+        "y": 343
+      }
+    },
+    "ruth_03": {
+      "frame": {
+        "x": 1392,
+        "y": 96,
+        "w": 436,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 436,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 436,
+        "h": 247
+      },
+      "anchorHint": {
+        "x": 1610,
+        "y": 343
+      }
+    },
+    "ruth_04": {
+      "frame": {
+        "x": 30,
+        "y": 442,
+        "w": 400,
+        "h": 244
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 400,
+        "h": 244
+      },
+      "sourceSize": {
+        "w": 400,
+        "h": 244
+      },
+      "anchorHint": {
+        "x": 230,
+        "y": 686
+      }
+    },
+    "ruth_05": {
+      "frame": {
+        "x": 523,
+        "y": 446,
+        "w": 333,
+        "h": 240
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 333,
+        "h": 240
+      },
+      "sourceSize": {
+        "w": 333,
+        "h": 240
+      },
+      "anchorHint": {
+        "x": 689,
+        "y": 686
+      }
+    },
+    "ruth_06": {
+      "frame": {
+        "x": 965,
+        "y": 453,
+        "w": 369,
+        "h": 233
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 369,
+        "h": 233
+      },
+      "sourceSize": {
+        "w": 369,
+        "h": 233
+      },
+      "anchorHint": {
+        "x": 1149,
+        "y": 686
+      }
+    },
+    "ruth_07": {
+      "frame": {
+        "x": 1441,
+        "y": 481,
+        "w": 338,
+        "h": 205
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 338,
+        "h": 205
+      },
+      "sourceSize": {
+        "w": 338,
+        "h": 205
+      },
+      "anchorHint": {
+        "x": 1610,
+        "y": 686
+      }
+    },
+    "ruth_08": {
+      "frame": {
+        "x": 84,
+        "y": 812,
+        "w": 292,
+        "h": 217
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 292,
+        "h": 217
+      },
+      "sourceSize": {
+        "w": 292,
+        "h": 217
+      },
+      "anchorHint": {
+        "x": 230,
+        "y": 1029
+      }
+    },
+    "ruth_09": {
+      "frame": {
+        "x": 552,
+        "y": 816,
+        "w": 275,
+        "h": 213
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 275,
+        "h": 213
+      },
+      "sourceSize": {
+        "w": 275,
+        "h": 213
+      },
+      "anchorHint": {
+        "x": 689,
+        "y": 1029
+      }
+    },
+    "ruth_10": {
+      "frame": {
+        "x": 944,
+        "y": 822,
+        "w": 412,
+        "h": 207
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 412,
+        "h": 207
+      },
+      "sourceSize": {
+        "w": 412,
+        "h": 207
+      },
+      "anchorHint": {
+        "x": 1150,
+        "y": 1029
+      }
+    },
+    "ruth_11": {
+      "frame": {
+        "x": 1437,
+        "y": 829,
+        "w": 345,
+        "h": 200
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 345,
+        "h": 200
+      },
+      "sourceSize": {
+        "w": 345,
+        "h": 200
+      },
+      "anchorHint": {
+        "x": 1609,
+        "y": 1029
+      }
+    }
+  },
+  "meta": {
+    "app": "janet-spritesheet-repacker",
+    "image": "ruth_sheet_repacked.png",
+    "size": {
+      "w": 1840,
+      "h": 1029
+    },
+    "scale": "1",
+    "cell": {
+      "w": 460,
+      "h": 343
+    },
+    "cols": 4,
+    "rows": 3
+  }
+}
