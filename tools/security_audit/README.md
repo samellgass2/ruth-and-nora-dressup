@@ -63,3 +63,37 @@ Behavior notes:
 - Hidden paths are excluded by default.
 - Common build/cache directories such as `node_modules` are excluded by default.
 - Raises `FileParseError` if any scanned Python file cannot be parsed.
+
+## Security Audit Report Generator
+
+Builds a consolidated report from directory and function-call maps.
+
+Run as CLI:
+
+```bash
+python3 tools/security_audit/generate_security_audit_report.py --root .
+```
+
+Write Markdown report to file:
+
+```bash
+python3 tools/security_audit/generate_security_audit_report.py --root . --output SECURITY_AUDIT_REPORT.md
+```
+
+JSON output:
+
+```bash
+python3 tools/security_audit/generate_security_audit_report.py --root . --json
+```
+
+Python API:
+
+```python
+from pathlib import Path
+from tools.security_audit.security_audit_report_generator import (
+    generate_security_audit_report,
+)
+
+report = generate_security_audit_report(Path("."))
+print(report.summary.high_findings, report.summary.medium_findings)
+```

@@ -119,6 +119,7 @@ class DirectoryStructureMapperTests(unittest.TestCase):
             "DESIGN.md",
             "LICENSE",
             "README.md",
+            "SECURITY_AUDIT_REPORT.md",
             "STATUS.md",
             "TASK_REPORT.md",
             "index.html",
