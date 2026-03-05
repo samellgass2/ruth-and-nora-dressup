@@ -17,6 +17,7 @@ This directory contains project tooling assets used to support development and a
 - `tests/test_item_name_similarity.py`: `unittest` checks for expected similar records.
 - `tests/test_db_column_map.py`: `unittest` checks for DB operation map output.
 - `tests/run_tools_tests.py`: Unified test runner for all tools Python tests.
+- `validate_story_research_qa.py`: Validates Workflow 6 QA evidence for LLM crawling and OpenClaw coverage.
 
 ## Item Similarity Tool
 Create the sample DB:
@@ -37,6 +38,11 @@ python3 tools/generate_db_column_map.py --database tools/samples/item_similarity
 Run tools test suite:
 ```bash
 python3 tools/tests/run_tools_tests.py
+```
+
+Validate Workflow 6 QA evidence:
+```bash
+python3 tools/validate_story_research_qa.py --json
 ```
 
 Or through npm scripts:

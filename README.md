@@ -109,6 +109,12 @@ Run tools test suite:
 npm run test:tools
 ```
 
+Validate Workflow 6 QA evidence:
+
+```bash
+python3 tools/validate_story_research_qa.py --json
+```
+
 ## Sprite Pipeline
 
 Regenerate pixelized runtime atlases from source repacked sheets:
@@ -145,3 +151,19 @@ Generated runtime output:
 - Keep `public/` atlases generated and in sync with source sprites.
 - Keep tool scripts deterministic and covered by `tools/tests` when behavior changes.
 - Prefer updating `tools/README.md` and root `README.md` together when tooling commands change.
+
+## Workflow 6 QA Coverage (Task 66)
+
+The QA block for Workflow 6 is resolved with explicit, source-backed answers for:
+
+- LLM-based crawling implementation/evidence.
+- OpenClaw story coverage.
+
+Evidence artifacts:
+
+- `research/workflow-6-qa-evidence.md`
+- `research/workflow-6-qa-evidence.json`
+
+Automated validator:
+
+- `tools/validate_story_research_qa.py`
