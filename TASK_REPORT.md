@@ -1,25 +1,23 @@
 # Task Report
 
-Task: 79 - Ensure Consistent AI Service Implementation  
-Run: 161  
+Task: 80 - Update STATUS.md  
+Run: 162  
 Date: 2026-03-05
 
 ## Summary
-- Added a single shared mock AI service at `tools/shared/mock_ai_service.py`.
-- Refactored AI-news newsletter summarization to use the shared mock service via `get_shared_mock_ai_service()`.
-- Added tests to verify deterministic mock behavior and service wiring.
-- Updated `TOOLS_GUIDE.md` with explicit AI service implementation details and consistency mapping across AI-related tools.
+- Updated `STATUS.md` with a Task 80 section documenting the audit and tool setup state for the repository.
+- Captured audit coverage across existing reports and tooling docs.
+- Documented available setup/verification entrypoints and current validation outcomes.
 
 ## Acceptance Criteria Verification
-- `TOOLS_GUIDE.md` now documents:
-  - canonical AI service implementation file,
-  - shared singleton accessor,
-  - AI tool usage matrix showing consistent service usage,
-  - non-AI tool families for scope clarity.
-- AI-news summarization path now centrally uses the same mock service implementation.
+- `STATUS.md` includes a clear summary of:
+  - audit artifacts reviewed,
+  - tool setup commands available,
+  - verification commands executed,
+  - final outcome for this run.
 
 ## Validation Commands
-- `python3 tools/tests/run_tools_tests.py`
+- `npm run test:tools`
 - `npx tsc --noEmit`
 
 ## Validation Results
@@ -27,10 +25,5 @@ Date: 2026-03-05
 - TypeScript type-check: PASS (exit code 0)
 
 ## Files Changed
-- `tools/shared/mock_ai_service.py` (added)
-- `tools/ai_news_crawler/newsletter_summarizer.py` (updated)
-- `tools/tests/test_mock_ai_service.py` (added)
-- `tools/tests/test_ai_news_newsletter_summarizer.py` (updated)
-- `TOOLS_GUIDE.md` (updated)
-- `tools/README.md` (updated)
+- `STATUS.md` (updated)
 - `TASK_REPORT.md` (updated)
