@@ -18,8 +18,11 @@ This directory contains project tooling assets used to support development and a
 - `security_audit/requirements.txt`: Pinned Python dependencies for security audit workflow.
 - `security_audit/directory_structure_mapper.py`: Callable API to map a repository directory tree with deterministic ordering.
 - `security_audit/map_directory_structure.py`: CLI wrapper for directory-structure mapping output in text or JSON.
+- `security_audit/function_call_relationship_mapper.py`: Callable API to parse Python files and map function-call relationships.
+- `security_audit/map_function_calls.py`: CLI wrapper for function-call relationship mapping output in text or JSON.
 - `security_audit/README.md`: Usage notes for security-audit mapping tools.
 - `tests/test_security_audit_directory_mapper.py`: `unittest` checks for expected directory-map behavior and repository structure output.
+- `tests/test_security_audit_function_call_mapper.py`: `unittest` checks for expected function-call mapping behavior and parse-failure handling.
 - `ai_news_crawler/sources.json`: Default source list with Arxiv and additional AI news websites.
 - `ai_news_crawler/article_retriever.py`: Retrieval/parsing module for Arxiv, RSS, and HTML sources.
 - `ai_news_crawler/retrieve_articles.py`: CLI to crawl configured sources and emit normalized JSON.
@@ -93,6 +96,16 @@ python3 tools/security_audit/map_directory_structure.py --root .
 Map as JSON with top-level only:
 ```bash
 python3 tools/security_audit/map_directory_structure.py --root . --json --max-depth 0
+```
+
+Map Python function-call relationships:
+```bash
+python3 tools/security_audit/map_function_calls.py --root .
+```
+
+Map function-call relationships as JSON:
+```bash
+python3 tools/security_audit/map_function_calls.py --root . --json
 ```
 
 Default venv location is `.venv-security-audit`. To use a custom location:

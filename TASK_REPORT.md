@@ -1,37 +1,42 @@
 # Task Report
 
-Task: 73 - Implement Directory Structure Mapping
-Run: 152
+Task: 74 - Develop Function Call Relationship Mapper
+Run: 153
 Date: 2026-03-05
 
 ## Summary
-- Implemented a callable Python directory-structure mapper for security audit use:
-  - `tools/security_audit/directory_structure_mapper.py`
-  - Exposes `map_directory_structure(...)` API with deterministic traversal.
-  - Adds `DirectoryAccessError` for directory access failures.
-  - Provides JSON serialization and text-tree rendering helpers.
+- Implemented a callable Python function-call relationship mapper for security-audit workflows:
+  - `tools/security_audit/function_call_relationship_mapper.py`
+  - Exposes `map_function_call_relationships(...)` API with deterministic traversal and output.
+  - Parses Python files with `ast` and records function definitions and intra-module call relationships.
+  - Raises `FileParseError` when any scanned file fails parsing (task stop condition behavior).
+  - Provides JSON serialization and text rendering helpers.
 - Added a CLI wrapper:
-  - `tools/security_audit/map_directory_structure.py`
+  - `tools/security_audit/map_function_calls.py`
   - Supports `--root`, `--json`, `--max-depth`, `--include-hidden`, `--follow-symlinks`.
-- Added tests that verify expected structure output:
-  - `tools/tests/test_security_audit_directory_mapper.py`
-  - Includes acceptance check against repository root top-level structure.
-- Added security-audit tool documentation:
+  - Returns dedicated parse-error exit code for unparseable files.
+- Added acceptance-oriented tests:
+  - `tools/tests/test_security_audit_function_call_mapper.py`
+  - Verifies expected call relationships, nested/class behavior, depth filtering, render output, CLI JSON output, and parse-failure handling.
+- Updated docs:
   - `tools/security_audit/README.md`
+  - `tools/README.md`
 
 ## Acceptance Criteria Verification
-- Function run and expected structure verification: PASS
-  - `test_cli_json_output_for_repository_root_matches_expected_entries` validates the mapped repository structure at top level.
-  - Deterministic ordering and counts validated by additional unit tests.
+- Function run and mapping correctness verification: PASS
+  - `test_maps_expected_function_relations_for_temp_tree` validates expected caller/callee mapping.
+  - `test_maps_nested_functions_and_class_methods` verifies nested and class-method relationships.
+  - `test_parse_failure_raises_file_parse_error` verifies parse failure is surfaced as blocking error behavior.
 
 ## Validation Commands Run
-- `python3 tools/security_audit/map_directory_structure.py --root /workspace --max-depth 0 --json` -> PASS
+- `python3 tools/security_audit/map_function_calls.py --root /workspace --max-depth 0 --json` -> PASS
 - `python3 tools/tests/run_tools_tests.py` -> PASS
 - `npx tsc --noEmit` -> PASS
 
 ## Files Changed
 - `TASK_REPORT.md` (updated)
-- `tools/security_audit/README.md` (added)
-- `tools/security_audit/directory_structure_mapper.py` (added)
-- `tools/security_audit/map_directory_structure.py` (added)
-- `tools/tests/test_security_audit_directory_mapper.py` (added)
+- `tools/security_audit/function_call_relationship_mapper.py` (added)
+- `tools/security_audit/map_function_calls.py` (added)
+- `tools/tests/test_security_audit_function_call_mapper.py` (added)
+- `tools/security_audit/README.md` (updated)
+- `tools/README.md` (updated)
