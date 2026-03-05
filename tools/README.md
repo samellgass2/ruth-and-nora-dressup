@@ -8,4 +8,5 @@ This directory contains project tooling assets used to support development and a
 
 ## Current Contents
 - `README.md`: Base overview for the `tools` directory.
+- `DESIGN.md`: Base design document for tooling behavior and conventions.
 - `.gitkeep`: Placeholder to keep the directory tracked when empty.

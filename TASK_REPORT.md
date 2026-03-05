@@ -1,16 +1,18 @@
 # Task Report
 
-Task: 55 - Create base README document
-Run: 129
+Task: 56 - Create base design document
+Run: 130
 Date: 2026-03-05
 
 ## Summary
-- Added `tools/README.md` with a concise description of the tools directory.
-- Documented directory purpose and current tracked files.
+- Added `tools/DESIGN.md` as a base tooling design document.
+- Document defines the tools directory purpose, scope, and conventions.
+- Included dedicated sections for both Python scripts and shell scripts.
+- Updated `tools/README.md` to list the new design document.
 
 ## Acceptance Criteria
-- `README.md` exists in `tools` directory: PASS
-- README contains a brief tools description: PASS
+- Design document exists in `tools` directory: PASS (`tools/DESIGN.md`)
+- Document includes sections for Python scripts and shell scripts: PASS
 
 ## Validation Performed
 - `npx tsc --noEmit`: PASS
