@@ -70,3 +70,74 @@ Requirement 2: OpenClaw coverage is provided and documented in README/STATUS.
 - `STATUS.md` and `README.md` both reference OpenClaw coverage artifacts: PASS
 
 Overall Task 66 status: COMPLETE
+
+## QA Validation Summary (Workflow 6 Certification)
+
+Validation date: 2026-03-05  
+Validator role: QA validation agent  
+Branch: `workflow/6/dev`
+
+### Commits Reviewed (`git log --oneline main..HEAD`)
+
+- `e5845d4` task/66: add workflow 6 QA evidence and OpenClaw coverage
+- `23d1958` task/65: update status and README for tools docs
+- `5957b8a` task/63: update STATUS with latest AI research summaries
+- `5b227e6` task/62: draft concise summaries for five major AI stories
+- `cafc8d1` task/61: identify five major AI stories from compiled trends
+- `fef3385` task/60: compile sourced AI trends research
+
+### Test and Validation Commands Run
+
+1. `npx tsc --noEmit`
+   - Exit code: `0`
+   - Output: *(no stdout/stderr)*
+   - Result: PASS
+
+2. `npm run test:tools`
+   - Exit code: `0`
+   - Output:
+     - `Ran 8 tests in 0.795s`
+     - `OK`
+   - Result: PASS
+
+3. `python3 tools/validate_story_research_qa.py --json`
+   - Exit code: `0`
+   - Output:
+     - `{ "status": "pass", "errors": [] }`
+   - Result: PASS
+
+4. `python3 -m pytest tools/tests -q`
+   - Exit code: `1`
+   - Output:
+     - `/usr/local/bin/python3: No module named pytest`
+   - Result: SKIPPED (pytest not installed; project test runner is `npm run test:tools` and passed)
+
+### Per-Task Acceptance Verdict
+
+- Research AI Trends: PASS
+  - `research/ai-trends-2026.md` contains 11 current trends, each with sources.
+
+- Identify Major AI Stories: PASS
+  - `research/major-ai-stories-2026.md` includes 5 major stories sourced from reputable organizations and covers diverse aspects (capabilities, enterprise adoption, governance, infrastructure, energy).
+
+- Draft Summary of AI Stories: PASS
+  - `research/major-ai-stories-2026-summaries.md` has 5 concise summaries; measured lengths are 165, 170, 174, 172, 167 words (all within 150-200).
+
+- Update STATUS.md: PASS
+  - STATUS documents latest workflow research/summaries and QA evidence details.
+
+- Update STATUS.md and README.md: PASS
+  - Both files reflect workflow 6 progress and QA evidence/validator usage.
+
+- Resolve QA Block for Workflow 6: PASS
+  - LLM-based crawling evidence and OpenClaw coverage are answered/documented in README/STATUS and validated by `tools/validate_story_research_qa.py`.
+
+### Workflow Goal Verdict
+
+Workflow goal: **Research Agent for AI Stories** (LLM service driven crawling + major AI/OpenClaw story compilation)
+
+- Evidence of researched trends/stories is present and source-backed.
+- QA artifacts explicitly address LLM-crawling evidence and OpenClaw inclusion.
+- Automated QA validator and tests are present and passing.
+
+Overall verdict: **PASS**
