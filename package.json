@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "generate:sprites": "python3 scripts/generate_pixel_atlases.py"
+    "generate:sprites": "python3 scripts/generate_pixel_atlases.py",
+    "test:tools": "python3 tools/tests/run_tools_tests.py"
   },
   "dependencies": {
     "@pixi/react": "^7.1.2",

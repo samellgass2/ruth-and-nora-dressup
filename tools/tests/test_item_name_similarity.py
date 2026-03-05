@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import json
 import subprocess
+import unittest
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -29,37 +30,41 @@ def run(cmd: list[str]) -> subprocess.CompletedProcess[str]:
     )
 
 
-def main() -> int:
-    create = run(["python3", str(CREATE_DB)])
-    if create.returncode != 0:
-        print(create.stdout)
-        print(create.stderr)
-        raise SystemExit("Failed to create sample database")
+class ItemNameSimilarityToolTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        create = run(["python3", str(CREATE_DB)])
+        if create.returncode != 0:
+            raise RuntimeError(
+                "Failed to create sample database:\n"
+                f"stdout:\n{create.stdout}\n"
+                f"stderr:\n{create.stderr}"
+            )
 
-    result = run(["python3", str(TOOL), "--config", str(CONFIG), "--json"])
-    if result.returncode != 0:
-        print(result.stdout)
-        print(result.stderr)
-        raise SystemExit("Similarity tool failed for sample config")
+    def test_similarity_returns_expected_pairs(self) -> None:
+        result = run(["python3", str(TOOL), "--config", str(CONFIG), "--json"])
+        self.assertEqual(result.returncode, 0, msg=result.stderr)
 
-    payload = json.loads(result.stdout)
-    output_pairs = {
-        frozenset((pair["left"]["name"], pair["right"]["name"]))
-        for pair in payload["pairs"]
-    }
+        payload = json.loads(result.stdout)
+        output_pairs = {
+            frozenset((pair["left"]["name"], pair["right"]["name"]))
+            for pair in payload["pairs"]
+        }
 
-    missing_pairs = EXPECTED_PAIR_NAMES - output_pairs
-    if missing_pairs:
-        raise SystemExit(f"Missing expected similar pairs: {sorted([tuple(p) for p in missing_pairs])}")
-
-    if payload["pair_count"] < len(EXPECTED_PAIR_NAMES):
-        raise SystemExit(
-            f"Expected at least {len(EXPECTED_PAIR_NAMES)} pairs, got {payload['pair_count']}"
+        missing_pairs = EXPECTED_PAIR_NAMES - output_pairs
+        self.assertFalse(
+            missing_pairs,
+            msg=f"Missing expected similar pairs: {sorted([tuple(p) for p in missing_pairs])}",
         )
+        self.assertGreaterEqual(payload["pair_count"], len(EXPECTED_PAIR_NAMES))
 
-    print("Acceptance check passed: expected similar records were returned.")
-    return 0
+    def test_missing_config_fails_with_expected_exit_code(self) -> None:
+        missing = REPO_ROOT / "tools" / "samples" / "does_not_exist.json"
+        result = run(["python3", str(TOOL), "--config", str(missing)])
+
+        self.assertEqual(result.returncode, 2)
+        self.assertIn("Config file not found", result.stderr)
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    unittest.main()

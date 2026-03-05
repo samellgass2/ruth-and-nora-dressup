@@ -84,7 +84,8 @@ Shell scripts are intended for orchestration tasks that compose existing tools
 - Example validation sequence:
   1. Run script with sample arguments.
   2. Verify expected files or output text.
-  3. Run `npx tsc --noEmit` to ensure project integrity.
+  3. Run Python tools tests with `python3 tools/tests/run_tools_tests.py`.
+  4. Run `npx tsc --noEmit` to ensure project integrity.
 
 ## Extensibility
 When adding a new tool:
