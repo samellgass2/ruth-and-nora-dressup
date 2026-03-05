@@ -1,40 +1,43 @@
-# QA Summary - Workflow 3: Set up main page and sprite animation
+# Status - AI News Crawler and Summarizer
 
-Date: 2026-03-04
-Branch: workflow/3/dev
+Date: 2026-03-05  
+Workflow: AI News Crawler and Summarizer  
+Task: 70 (Update STATUS.md with progress)
 
-## Commits Reviewed
-- 5490305 task/48: supervisor safety-commit (Codex omitted git commit)
-- 19d46e9 task/47: add menu stubs for shop and inventory
-- e64c461 task/46: improve sprite animation loop
-- e376e08 task/44: add main page sprite layout
+## Current Progress
 
-## Diff Summary
-```
-STATUS.md      |  38 +++++++++
-TASK_REPORT.md |   9 +++
-index.html     |  75 +++++++++++++++++
-main.js        | 109 +++++++++++++++++++++++++
-styles.css     | 252 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-5 files changed, 483 insertions(+)
-```
+### Completed Milestones
+- Task 67: AI news crawler environment setup added.
+  - `tools/setup_ai_news_env.py` creates/verifies local venv for crawler dependencies.
+  - npm scripts added: `setup:ai-news-env`, `verify:ai-news-env`.
+- Task 68: Article retrieval pipeline implemented.
+  - `tools/ai_news_crawler/article_retriever.py` supports Arxiv Atom feeds, RSS feeds, and HTML headline extraction.
+  - `tools/ai_news_crawler/retrieve_articles.py` CLI outputs normalized retrieval JSON from configured sources.
+  - `tools/ai_news_crawler/sources.json` defines default source configuration.
+- Task 69: Newsletter summarization and HTML rendering implemented.
+  - `tools/ai_news_crawler/newsletter_summarizer.py` loads/validates payloads, summarizes content, groups by source, and renders deterministic escaped HTML.
+  - `tools/ai_news_crawler/summarize_articles.py` CLI supports live retrieval or `--input-json` mode and writes newsletter HTML output.
+  - Tests added for parsing, summarization, grouping, HTML rendering, escaping, and CLI behavior.
 
-## Tests
-No automated tests found.
+### Validation Coverage
+- Python tool tests are available through:
+  - `python3 tools/tests/run_tools_tests.py`
+  - `npm run test:tools`
+- TypeScript project typecheck is available through:
+  - `npx tsc --noEmit`
+  - `npm run typecheck`
 
-Commands run:
-- `find . -maxdepth 2 -name 'package.json' -o -name 'Makefile' -o -name 'pytest.ini' -o -name 'pyproject.toml'`
-  - Result: no files found
+### Current Workflow State
+- Core crawler + summarizer pipeline is in place end-to-end:
+  - Source config -> retrieval JSON -> summarization -> newsletter HTML.
+- Environment bootstrap and verification tooling exists for reproducible local setup.
+- Automated tests exist for AI news retriever and summarizer modules.
+- Workflow status: in progress, with functional foundation complete and ready for additional source tuning, ranking/filtering logic, and presentation refinements.
 
-## Acceptance Criteria Verification
-- Set up main page layout: PASS
-  - `index.html` renders the stage, sprite container, and switch button; `main.js` binds button to toggle sprite name and image.
-- Cut up sprite sheet into frames: PASS
-  - Sprite sheets are 1536x1024 (6 columns x 4 rows of 256x256); verified via PNG header parse. `main.js` computes frame positions via background offsets per frame.
-- Implement sprite animation: PASS
-  - `main.js` uses requestAnimationFrame with frame timing and loops frames; respects reduced motion.
-- Create menu stubs for item shop and inventory: PASS
-  - `index.html` includes nav links and stub cards with clickable links; styles applied in `styles.css`.
+## Recent Task Sequence
+- `0d9f2c9` - task/67: set up ai news crawler environment
+- `137dfae` - task/68: implement ai news article retrieval and tests
+- `5f87686` - task/69: add HTML newsletter summarization pipeline
 
-## Overall Workflow Goal
-PASS - Main page displays sprite, supports switching between Ruth and Nora, animates sprites from a 6x4 sheet, and provides menu stubs for Item Shop and Inventory.
+## Notes
+- Previous `STATUS.md` content referenced workflow 3 (sprite animation) and is now superseded by this workflow-focused status for AI news crawling/summarization.
