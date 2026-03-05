@@ -1,32 +1,36 @@
 # Task Report
 
-Task: 78 - Add Bash Scripting for Python Setup  
-Run: 160  
+Task: 79 - Ensure Consistent AI Service Implementation  
+Run: 161  
 Date: 2026-03-05
 
 ## Summary
-- Added `scripts/setup_python_tools.sh` as a unified Bash setup/verification entrypoint for Python tooling.
-- Script runs both Python environment setup flows, verifies key tool CLIs are invokable, and creates local command shims in `.tools-bin`.
-- Added npm scripts:
-  - `setup:python-tools`
-  - `verify:python-tools`
-- Updated `README.md`, `tools/README.md`, and `STATUS.md` with usage and task status details.
+- Added a single shared mock AI service at `tools/shared/mock_ai_service.py`.
+- Refactored AI-news newsletter summarization to use the shared mock service via `get_shared_mock_ai_service()`.
+- Added tests to verify deterministic mock behavior and service wiring.
+- Updated `TOOLS_GUIDE.md` with explicit AI service implementation details and consistency mapping across AI-related tools.
 
 ## Acceptance Criteria Verification
-- Run bash setup script and confirm environment setup without errors: PASS
-  - Command: `bash scripts/setup_python_tools.sh`
-  - Result: created/verified `.venv-ai-news` and `.venv-security-audit`, verified tool invocations, generated shims successfully.
+- `TOOLS_GUIDE.md` now documents:
+  - canonical AI service implementation file,
+  - shared singleton accessor,
+  - AI tool usage matrix showing consistent service usage,
+  - non-AI tool families for scope clarity.
+- AI-news summarization path now centrally uses the same mock service implementation.
 
 ## Validation Commands
-- `bash scripts/setup_python_tools.sh`
-- `bash scripts/setup_python_tools.sh --verify-only`
+- `python3 tools/tests/run_tools_tests.py`
 - `npx tsc --noEmit`
-- `npm run test:tools`
+
+## Validation Results
+- Tools tests: PASS (`Ran 42 tests`, `OK`)
+- TypeScript type-check: PASS (exit code 0)
 
 ## Files Changed
-- `scripts/setup_python_tools.sh` (added)
-- `package.json` (updated scripts)
-- `README.md` (updated Python tooling usage)
-- `tools/README.md` (added unified setup section)
-- `STATUS.md` (task 78 status entry)
-- `TASK_REPORT.md` (updated for task 78)
+- `tools/shared/mock_ai_service.py` (added)
+- `tools/ai_news_crawler/newsletter_summarizer.py` (updated)
+- `tools/tests/test_mock_ai_service.py` (added)
+- `tools/tests/test_ai_news_newsletter_summarizer.py` (updated)
+- `TOOLS_GUIDE.md` (updated)
+- `tools/README.md` (updated)
+- `TASK_REPORT.md` (updated)
