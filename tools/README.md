@@ -13,7 +13,19 @@ This directory contains project tooling assets used to support development and a
 - `find_similar_item_names.py`: CLI that reads DB config and finds similar item names.
 - `generate_db_column_map.py`: CLI that runs a DB column operation and returns map-like output.
 - `setup_ai_news_env.py`: Bootstraps a local Python virtualenv for AI news crawling/summarization dependencies and verifies with `pip freeze`.
+- `setup_security_audit_env.py`: Bootstraps a local Python virtualenv for security audit tool dependencies and verifies with `pip freeze`.
 - `ai_news_crawler/requirements.txt`: Pinned Python dependencies for crawler and summarizer workflows.
+- `security_audit/requirements.txt`: Pinned Python dependencies for security audit workflow.
+- `security_audit/directory_structure_mapper.py`: Callable API to map a repository directory tree with deterministic ordering.
+- `security_audit/map_directory_structure.py`: CLI wrapper for directory-structure mapping output in text or JSON.
+- `security_audit/function_call_relationship_mapper.py`: Callable API to parse Python files and map function-call relationships.
+- `security_audit/map_function_calls.py`: CLI wrapper for function-call relationship mapping output in text or JSON.
+- `security_audit/security_audit_report_generator.py`: Callable API to generate security findings from mapping outputs.
+- `security_audit/generate_security_audit_report.py`: CLI wrapper for Markdown/JSON security-audit report generation.
+- `security_audit/README.md`: Usage notes for security-audit mapping tools.
+- `tests/test_security_audit_directory_mapper.py`: `unittest` checks for expected directory-map behavior and repository structure output.
+- `tests/test_security_audit_function_call_mapper.py`: `unittest` checks for expected function-call mapping behavior and parse-failure handling.
+- `tests/test_security_audit_report_generator.py`: `unittest` checks for report findings, actionable fixes, and CLI output.
 - `ai_news_crawler/sources.json`: Default source list with Arxiv and additional AI news websites.
 - `ai_news_crawler/article_retriever.py`: Retrieval/parsing module for Arxiv, RSS, and HTML sources.
 - `ai_news_crawler/retrieve_articles.py`: CLI to crawl configured sources and emit normalized JSON.
@@ -66,6 +78,52 @@ npm run verify:ai-news-env
 Default venv location is `.venv-ai-news`. To use a custom location:
 ```bash
 python3 tools/setup_ai_news_env.py --venv .venv-custom-name
+```
+
+## Security Audit Environment
+Create or update a local security-audit virtualenv:
+```bash
+npm run setup:security-audit-env
+```
+
+Verify required packages via `pip freeze` (without reinstalling):
+```bash
+npm run verify:security-audit-env
+```
+
+Map the current repository structure (text tree):
+```bash
+python3 tools/security_audit/map_directory_structure.py --root .
+```
+
+Map as JSON with top-level only:
+```bash
+python3 tools/security_audit/map_directory_structure.py --root . --json --max-depth 0
+```
+
+Map Python function-call relationships:
+```bash
+python3 tools/security_audit/map_function_calls.py --root .
+```
+
+Map function-call relationships as JSON:
+```bash
+python3 tools/security_audit/map_function_calls.py --root . --json
+```
+
+Generate a security audit report:
+```bash
+python3 tools/security_audit/generate_security_audit_report.py --root .
+```
+
+Write the report to a markdown file:
+```bash
+python3 tools/security_audit/generate_security_audit_report.py --root . --output SECURITY_AUDIT_REPORT.md
+```
+
+Default venv location is `.venv-security-audit`. To use a custom location:
+```bash
+python3 tools/setup_security_audit_env.py --venv .venv-custom-name
 ```
 
 Retrieve articles from default configured sources:

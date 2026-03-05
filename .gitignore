@@ -142,5 +142,6 @@ vite.config.ts.timestamp-*
 
 # Local Python tooling artifacts
 .venv-ai-news/
+.venv-security-audit/
 __pycache__/
 *.py[cod]
