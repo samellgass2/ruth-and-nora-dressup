@@ -1,0 +1,18 @@
+{
+  "database": {
+    "driver": "sqlite",
+    "path": "tools/samples/item_similarity_sample.db",
+    "uri": false
+  },
+  "query": {
+    "table": "items",
+    "id_column": "id",
+    "name_column": "name",
+    "where": "is_active = 1"
+  },
+  "similarity": {
+    "threshold": 0.6,
+    "top_k_per_item": 2,
+    "min_name_length": 3
+  }
+}
