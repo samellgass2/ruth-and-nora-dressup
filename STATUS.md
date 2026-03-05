@@ -125,6 +125,125 @@ Goal: Create callable Python toolchain for security audit that maps directory st
 ## Overall Verdict
 PASS
 
+# QA Certification Summary - Workflow #9 (Current Branch Validation)
+
+Date: 2026-03-05 (UTC)
+Project: ruth-and-nora-dress-up
+Branch: workflow/9/dev
+Workflow: Audit and Tool Setup for Ruth and Nora Dress Up
+
+## Commits Reviewed (`main..HEAD`)
+- `7fdd8cd` task/81: supervisor safety-commit (Codex omitted git commit)
+
+## Diff Summary (`main...HEAD --stat`)
+- `.tools-bin/tool-ai-news-retrieve | 3 +`
+- `.tools-bin/tool-ai-news-summarize | 3 +`
+- `.tools-bin/tool-find-similar-item-names | 3 +`
+- `.tools-bin/tool-generate-db-column-map | 3 +`
+- `.tools-bin/tool-generate-security-audit-report | 3 +`
+- `.tools-bin/tool-map-directory-structure | 3 +`
+- `.tools-bin/tool-map-function-calls | 3 +`
+- `STATUS.md | 110 +++++++++++++++++++++++++`
+- `8 files changed, 131 insertions(+)`
+
+## Test and Validation Commands Run
+1. `git log --oneline main..HEAD`
+- Result: PASS
+- Output:
+  - `7fdd8cd task/81: supervisor safety-commit (Codex omitted git commit)`
+
+2. `git diff main...HEAD --stat`
+- Result: PASS
+- Output:
+  - `.tools-bin/*` shim wrappers added/updated and `STATUS.md` updated.
+
+3. `cat tsconfig.json`
+- Result: PASS
+- Output highlights: `strict: true`, `noEmit: true`, `include: ["src"]`, no path aliases configured.
+
+4. `cat package.json | grep -A 40 '"scripts"'`
+- Result: PASS
+- Output highlights include:
+  - `test:tools`
+  - `setup:python-tools`
+  - `verify:python-tools`
+  - `typecheck`
+
+5. `python3 --version`
+- Result: PASS
+- Output: `Python 3.12.13`
+
+6. `npm install`
+- Result: PASS
+- Output: `added 144 packages ... found 0 vulnerabilities`
+
+7. `npx tsc --noEmit`
+- Result: PASS
+- Output: no diagnostics (exit code 0).
+
+8. `npm run test:tools`
+- Result: PASS
+- Output: `Ran 42 tests in 1.494s` and `OK`.
+
+9. `python3 -m pytest tools/tests -q`
+- Result: FAIL
+- Output: `/usr/local/bin/python3: No module named pytest`
+- Note: this uses system Python without repo venv activation.
+
+10. `python3 -m unittest discover`
+- Result: FAIL
+- Output: `Ran 0 tests` / `NO TESTS RAN` (exit code 5).
+
+11. `bash scripts/setup_python_tools.sh`
+- Result: PASS
+- Output confirms:
+  - `.venv-ai-news` created and requirements installed
+  - `.venv-security-audit` created and requirements installed
+  - invokability checks passed for AI news and security audit tools
+  - `.tools-bin` shims installed and verified
+
+12. `bash scripts/setup_python_tools.sh --verify-only`
+- Result: PASS
+- Output confirms both venvs, required packages, and shim invocations validate cleanly.
+
+13. `grep -RInE "openai|OpenAI|get_shared_mock_ai_service|complete_summary" tools`
+- Result: PASS
+- Output shows AI summary path uses:
+  - `tools/shared/mock_ai_service.py`
+  - `tools/ai_news_crawler/newsletter_summarizer.py` import of `get_shared_mock_ai_service`
+
+14. `python3 - <<'PY' ...` (coverage check between `tools/` files and `TOOLS_GUIDE.md`)
+- Result: PASS
+- Output:
+  - `TOTAL_FILES 34`
+  - `MISSING 0`
+
+## Per-Task Acceptance Verdict
+1. Audit Existing Tools
+- Verdict: PASS
+- Evidence: `TOOLS_GUIDE.md` exists and lists all non-cache files under `tools/` (`34/34`, `MISSING 0`).
+
+2. Add Bash Scripting for Python Setup
+- Verdict: PASS
+- Evidence: `bash scripts/setup_python_tools.sh` completed successfully and `--verify-only` passed.
+
+3. Ensure Consistent AI Service Implementation
+- Verdict: PASS
+- Evidence: `TOOLS_GUIDE.md` documents shared mock AI service; grep confirms shared usage via `tools/shared/mock_ai_service.py` and `get_shared_mock_ai_service()` in AI tool path.
+
+4. Update STATUS.md
+- Verdict: PASS
+- Evidence: this QA certification summary has been appended to `STATUS.md`.
+
+## Workflow Goal Validation
+Goal: audit existing `tools/` contents, provide `TOOLS_GUIDE.md`, add one-call Python setup, and ensure all AI-using tools share the same mock AI implementation documented in the guide.
+
+- Verdict: PASS
+- Rationale: all required artifacts exist, setup script works end-to-end, and AI service consistency is documented and verified by code/test evidence.
+
+## Overall Verdict
+PASS
+
 # QA Validation Summary - Workflow #9
 
 Date: 2026-03-05 (UTC)
