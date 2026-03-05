@@ -1,47 +1,39 @@
 # Task Report
 
-Task: 67 - Set Up Environment for AI News Crawler
-Run: 146
+Task: 68 - Implement Article Retrieval Functionality
+Run: 147
 Date: 2026-03-05
 
 ## Summary
-- Added pinned Python dependency manifest for the AI news crawler/summarizer workflow at `tools/ai_news_crawler/requirements.txt`.
-- Added `tools/setup_ai_news_env.py` to:
-  - create a local virtual environment (`.venv-ai-news` by default),
-  - install required packages,
-  - verify installation by parsing `pip freeze` output and ensuring all required packages are present.
-- Added npm scripts:
-  - `npm run setup:ai-news-env`
-  - `npm run verify:ai-news-env`
-- Updated tooling docs in `tools/README.md` with setup and verification commands.
-- Updated `.gitignore` to exclude local Python env/cache artifacts.
-
-## Required Packages Configured
-- `beautifulsoup4==4.13.4`
-- `feedparser==6.0.11`
-- `httpx==0.28.1`
-- `lxml==5.4.0`
-- `openai==2.6.1`
-- `pydantic==2.11.7`
-- `python-dateutil==2.9.0.post0`
-- `python-dotenv==1.1.1`
-- `tenacity==9.1.2`
+- Implemented article retrieval functionality for AI news workflow in `tools/ai_news_crawler/article_retriever.py`.
+- Added normalized article model and source definition model.
+- Added retrieval support for:
+  - Arxiv Atom feeds (`source_type: arxiv`)
+  - Generic RSS feeds (`source_type: rss`)
+  - HTML headline crawling (`source_type: html`)
+- Added source configuration loading and validation from JSON.
+- Added JSON serialization utility for downstream summarization/processing.
+- Added CLI entrypoint `tools/ai_news_crawler/retrieve_articles.py` to crawl configured websites and emit JSON.
+- Added default website source config at `tools/ai_news_crawler/sources.json` including Arxiv and additional sources.
+- Added dedicated unit tests in `tools/tests/test_ai_news_article_retriever.py`.
+- Updated tooling docs in `tools/README.md` with retrieval usage.
 
 ## Acceptance Criteria Verification
-- Environment is set up with necessary libraries/dependencies for AI news crawler: PASS
-  - Executed `npm run setup:ai-news-env` successfully.
-- Verify packages installed with `pip freeze` or `npm list`: PASS
-  - Executed `npm run verify:ai-news-env` (internally validates `pip freeze`).
-  - Executed direct freeze command `.venv-ai-news/bin/python -m pip freeze` and confirmed required packages.
+- Functionality to crawl and retrieve articles from specified websites implemented: PASS
+  - Retrieval module supports multi-source crawling from config-defined websites.
+  - Arxiv feed retrieval/parsing is covered by tests.
+  - Additional source retrieval (RSS and HTML) is covered by tests.
+- Unit tests ensure articles are retrieved correctly from Arxiv and other sources: PASS
+  - Executed `python3 tools/tests/run_tools_tests.py` and confirmed retrieval tests pass.
 
-## Additional Validation
-- `npm run test:tools`: PASS
-- `npx tsc --noEmit`: PASS
+## Validation Commands Run
+- `python3 tools/tests/run_tools_tests.py` -> PASS
+- `npx tsc --noEmit` -> PASS
 
 ## Files Changed
-- `.gitignore`
-- `package.json`
-- `tools/README.md`
-- `tools/ai_news_crawler/requirements.txt`
-- `tools/setup_ai_news_env.py`
-- `TASK_REPORT.md`
+- `tools/ai_news_crawler/article_retriever.py` (new)
+- `tools/ai_news_crawler/retrieve_articles.py` (new)
+- `tools/ai_news_crawler/sources.json` (new)
+- `tools/tests/test_ai_news_article_retriever.py` (new)
+- `tools/README.md` (updated)
+- `TASK_REPORT.md` (updated)

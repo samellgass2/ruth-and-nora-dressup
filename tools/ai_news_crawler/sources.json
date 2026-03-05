@@ -1,0 +1,25 @@
+{
+  "sources": [
+    {
+      "source_id": "arxiv-cs-ai",
+      "source_name": "Arxiv cs.AI",
+      "source_type": "arxiv",
+      "url": "https://export.arxiv.org/api/query?search_query=cat:cs.AI&start=0&max_results=10",
+      "limit": 10
+    },
+    {
+      "source_id": "hacker-news-rss",
+      "source_name": "Hacker News",
+      "source_type": "rss",
+      "url": "https://hnrss.org/newest?q=artificial+intelligence",
+      "limit": 10
+    },
+    {
+      "source_id": "openai-news",
+      "source_name": "OpenAI News",
+      "source_type": "html",
+      "url": "https://openai.com/news/",
+      "limit": 10
+    }
+  ]
+}

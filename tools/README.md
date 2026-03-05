@@ -14,10 +14,14 @@ This directory contains project tooling assets used to support development and a
 - `generate_db_column_map.py`: CLI that runs a DB column operation and returns map-like output.
 - `setup_ai_news_env.py`: Bootstraps a local Python virtualenv for AI news crawling/summarization dependencies and verifies with `pip freeze`.
 - `ai_news_crawler/requirements.txt`: Pinned Python dependencies for crawler and summarizer workflows.
+- `ai_news_crawler/sources.json`: Default source list with Arxiv and additional AI news websites.
+- `ai_news_crawler/article_retriever.py`: Retrieval/parsing module for Arxiv, RSS, and HTML sources.
+- `ai_news_crawler/retrieve_articles.py`: CLI to crawl configured sources and emit normalized JSON.
 - `samples/create_item_similarity_sample_db.py`: Builds a deterministic sample SQLite DB.
 - `samples/item_similarity_sample_config.json`: Sample config for the similarity CLI.
 - `tests/test_item_name_similarity.py`: `unittest` checks for expected similar records.
 - `tests/test_db_column_map.py`: `unittest` checks for DB operation map output.
+- `tests/test_ai_news_article_retriever.py`: `unittest` checks article retrieval and source config parsing.
 - `tests/run_tools_tests.py`: Unified test runner for all tools Python tests.
 
 ## Item Similarity Tool
@@ -60,4 +64,14 @@ npm run verify:ai-news-env
 Default venv location is `.venv-ai-news`. To use a custom location:
 ```bash
 python3 tools/setup_ai_news_env.py --venv .venv-custom-name
+```
+
+Retrieve articles from default configured sources:
+```bash
+python3 tools/ai_news_crawler/retrieve_articles.py --pretty
+```
+
+Use a custom source config:
+```bash
+python3 tools/ai_news_crawler/retrieve_articles.py --config path/to/sources.json --pretty
 ```
