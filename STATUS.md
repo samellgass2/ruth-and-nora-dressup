@@ -10,6 +10,10 @@ Task: 70 (Update STATUS.md with progress)
 - Task 67: AI news crawler environment setup added.
   - `tools/setup_ai_news_env.py` creates/verifies local venv for crawler dependencies.
   - npm scripts added: `setup:ai-news-env`, `verify:ai-news-env`.
+- Task 72: Security audit Python environment setup added.
+  - `tools/setup_security_audit_env.py` creates/verifies local venv for security audit dependencies.
+  - `tools/security_audit/requirements.txt` pins `requests`, `flask`, and `pytest`.
+  - npm scripts added: `setup:security-audit-env`, `verify:security-audit-env`.
 - Task 68: Article retrieval pipeline implemented.
   - `tools/ai_news_crawler/article_retriever.py` supports Arxiv Atom feeds, RSS feeds, and HTML headline extraction.
   - `tools/ai_news_crawler/retrieve_articles.py` CLI outputs normalized retrieval JSON from configured sources.

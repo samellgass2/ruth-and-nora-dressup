@@ -13,7 +13,9 @@ This directory contains project tooling assets used to support development and a
 - `find_similar_item_names.py`: CLI that reads DB config and finds similar item names.
 - `generate_db_column_map.py`: CLI that runs a DB column operation and returns map-like output.
 - `setup_ai_news_env.py`: Bootstraps a local Python virtualenv for AI news crawling/summarization dependencies and verifies with `pip freeze`.
+- `setup_security_audit_env.py`: Bootstraps a local Python virtualenv for security audit tool dependencies and verifies with `pip freeze`.
 - `ai_news_crawler/requirements.txt`: Pinned Python dependencies for crawler and summarizer workflows.
+- `security_audit/requirements.txt`: Pinned Python dependencies for security audit workflow.
 - `ai_news_crawler/sources.json`: Default source list with Arxiv and additional AI news websites.
 - `ai_news_crawler/article_retriever.py`: Retrieval/parsing module for Arxiv, RSS, and HTML sources.
 - `ai_news_crawler/retrieve_articles.py`: CLI to crawl configured sources and emit normalized JSON.
@@ -66,6 +68,22 @@ npm run verify:ai-news-env
 Default venv location is `.venv-ai-news`. To use a custom location:
 ```bash
 python3 tools/setup_ai_news_env.py --venv .venv-custom-name
+```
+
+## Security Audit Environment
+Create or update a local security-audit virtualenv:
+```bash
+npm run setup:security-audit-env
+```
+
+Verify required packages via `pip freeze` (without reinstalling):
+```bash
+npm run verify:security-audit-env
+```
+
+Default venv location is `.venv-security-audit`. To use a custom location:
+```bash
+python3 tools/setup_security_audit_env.py --venv .venv-custom-name
 ```
 
 Retrieve articles from default configured sources:
