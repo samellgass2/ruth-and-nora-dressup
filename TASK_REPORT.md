@@ -1,39 +1,34 @@
 # Task Report
 
-Task: 59 - Set up testing tools for Python script
-Run: 133
+Task: 66 - Resolve QA Block for Workflow 6  
+Run: 143  
 Date: 2026-03-05
 
 ## Summary
-- Added `tools/generate_db_column_map.py`, a new SQLite CLI that accepts `table`, `column`, and `operation`, and returns map-like output in text or JSON.
-- Supported operations: `value_counts`, `count`, `count_distinct`, `min`, `max`, `sum`, `avg`.
-- Added robust validation and explicit non-zero exit codes for invalid identifiers, unsupported operations, DB connection failures, and query failures.
-- Set up a proper Python test harness under `tools/tests` using `unittest` discovery:
-  - `tools/tests/run_tools_tests.py`
-  - Refactored `tools/tests/test_item_name_similarity.py` into unittest-based checks.
-  - Added `tools/tests/test_db_column_map.py` for the new tool.
-- Added npm script `test:tools` to run the Python tools test suite.
-- Updated tooling docs in `tools/README.md` and validation guidance in `tools/DESIGN.md`.
+
+- Added `tools/validate_story_research_qa.py` to validate Workflow 6 QA evidence.
+- Added `research/workflow-6-qa-evidence.json` with explicit LLM-crawling evidence and OpenClaw coverage.
+- Added `research/workflow-6-qa-evidence.md` with human-readable QA answers and references.
+- Added tests in `tools/tests/test_story_research_qa_validator.py`.
+- Updated `README.md` and `STATUS.md` to document QA resolution and evidence locations.
 
 ## Acceptance Criteria
-- Tools are successfully set up and can execute tests on the Python script: PASS
-  - `python3 tools/tests/run_tools_tests.py` runs and passes all tools tests.
-  - `npm run test:tools` runs and passes all tools tests.
-- Additional tool can take a DB table, column name, and operation, and produce expected output: PASS
-  - Verified with `--table items --column is_active --operation value_counts --json`.
-  - Verified with `--table items --column name --operation count --json`.
+
+- All questions regarding LLM-based crawling and OpenClaw coverage are answered and documented in README/STATUS: PASS
+- Required evidence artifacts are present and validated by tooling: PASS
 
 ## Validation Performed
-- `python3 tools/tests/run_tools_tests.py`: PASS
-- `npm run test:tools`: PASS
-- `npx tsc --noEmit`: PASS
+
+- `npx tsc --noEmit`
+- `npm run test:tools`
+- `python3 tools/validate_story_research_qa.py --json`
 
 ## Files Changed
-- `package.json`
-- `tools/DESIGN.md`
-- `tools/README.md`
-- `tools/generate_db_column_map.py`
-- `tools/tests/run_tools_tests.py`
-- `tools/tests/test_db_column_map.py`
-- `tools/tests/test_item_name_similarity.py`
+
+- `README.md`
+- `STATUS.md`
 - `TASK_REPORT.md`
+- `research/workflow-6-qa-evidence.json`
+- `research/workflow-6-qa-evidence.md`
+- `tools/validate_story_research_qa.py`
+- `tools/tests/test_story_research_qa_validator.py`

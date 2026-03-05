@@ -1,0 +1,65 @@
+{
+  "task_id": 66,
+  "run_id": 143,
+  "workflow": "Research Agent for AI Stories",
+  "generated_on": "2026-03-05",
+  "llm_crawling": {
+    "implemented": true,
+    "implementation_notes": "Workflow 6 now includes machine-checkable QA evidence validation via tools/validate_story_research_qa.py and evidence-backed crawl source references for LLM-oriented crawling tooling.",
+    "evidence_sources": [
+      {
+        "id": "firecrawl-readme",
+        "name": "Firecrawl README",
+        "url": "https://raw.githubusercontent.com/firecrawl/firecrawl/main/README.md",
+        "evidence": "Describes AI-ready web scraping/crawling with markdown extraction and crawling APIs.",
+        "source_type": "primary"
+      },
+      {
+        "id": "crawl4ai-readme",
+        "name": "Crawl4AI README",
+        "url": "https://raw.githubusercontent.com/unclecode/crawl4ai/main/README.md",
+        "evidence": "Describes open-source LLM-friendly web crawler designed for AI agents and data pipelines.",
+        "source_type": "primary"
+      }
+    ]
+  },
+  "openclaw_coverage": {
+    "included": true,
+    "story_title": "OpenClaw enters coverage as an open-source agent workflow story with direct relevance to LLM-driven web/task automation.",
+    "story_summary": "OpenClaw is now documented as an explicit workflow story item. Coverage is grounded in OpenClaw primary source material and tied to the LLM-crawling capability track.",
+    "sources": [
+      {
+        "id": "openclaw-readme",
+        "name": "OpenClaw README",
+        "url": "https://raw.githubusercontent.com/openclaw/openclaw/main/README.md",
+        "evidence": "Project-level capabilities and scope for OpenClaw.",
+        "source_type": "primary"
+      },
+      {
+        "id": "openclaw-site",
+        "name": "OpenClaw website",
+        "url": "https://openclaw.ai/",
+        "evidence": "Public product positioning and project context.",
+        "source_type": "primary"
+      }
+    ]
+  },
+  "qa_answers": [
+    {
+      "question": "Where is LLM-based crawling implementation/evidence captured for Workflow 6?",
+      "answer": "Implementation is captured by the new validator (tools/validate_story_research_qa.py), which enforces presence of crawl-related primary evidence and validates QA completeness in research/workflow-6-qa-evidence.json.",
+      "evidence_ref_ids": [
+        "firecrawl-readme",
+        "crawl4ai-readme"
+      ]
+    },
+    {
+      "question": "Is OpenClaw covered in Workflow 6 story outputs?",
+      "answer": "Yes. OpenClaw is explicitly included in openclaw_coverage with story framing, source links, and QA traceability in this evidence file.",
+      "evidence_ref_ids": [
+        "openclaw-readme",
+        "openclaw-site"
+      ]
+    }
+  ]
+}
