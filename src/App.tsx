@@ -24,7 +24,7 @@ type ItemPlacement = {
   y: number;
   scaleMultiplier: number;
   anchor?: [number, number];
-  attachTo?: "head" | "body";
+  attachTo?: "head" | "neck" | "body";
 };
 
 type EquipItem = {
@@ -32,6 +32,7 @@ type EquipItem = {
   name: string;
   slot: ItemSlot;
   textureUrl: string;
+  tint?: number;
   placements: Record<Character, ItemPlacement>;
 };
 
@@ -82,25 +83,57 @@ const INVENTORY_ITEMS: EquipItem[] = [
     },
   },
   {
-    id: "collar-ruby",
-    name: "Ruby Collar",
+    id: "collar-pink",
+    name: "Pink Collar",
     slot: "body",
     textureUrl: "/items/collar_ruby.png",
+    tint: 0xff9bc9,
     placements: {
-      Ruth: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
-      Nora: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
-      "Black Terrier": { x: 0, y: -10, scaleMultiplier: 1.05, anchor: [0.5, 0.35], attachTo: "body" },
+      Ruth: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      Nora: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      "Black Terrier": {
+        x: 0,
+        y: 2,
+        scaleMultiplier: 1.08,
+        anchor: [0.5, 0.35],
+        attachTo: "neck",
+      },
     },
   },
   {
-    id: "collar-sky",
-    name: "Sky Collar",
+    id: "collar-blue",
+    name: "Blue Collar",
     slot: "body",
     textureUrl: "/items/collar_sky.png",
+    tint: 0x8ac9ff,
     placements: {
-      Ruth: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
-      Nora: { x: 0, y: -6, scaleMultiplier: 1, anchor: [0.5, 0.35], attachTo: "body" },
-      "Black Terrier": { x: 0, y: -10, scaleMultiplier: 1.05, anchor: [0.5, 0.35], attachTo: "body" },
+      Ruth: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      Nora: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      "Black Terrier": {
+        x: 0,
+        y: 2,
+        scaleMultiplier: 1.08,
+        anchor: [0.5, 0.35],
+        attachTo: "neck",
+      },
+    },
+  },
+  {
+    id: "collar-green",
+    name: "Green Collar",
+    slot: "body",
+    textureUrl: "/items/collar_sky.png",
+    tint: 0x89d65c,
+    placements: {
+      Ruth: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      Nora: { x: 0, y: 1, scaleMultiplier: 1.01, anchor: [0.5, 0.35], attachTo: "neck" },
+      "Black Terrier": {
+        x: 0,
+        y: 2,
+        scaleMultiplier: 1.08,
+        anchor: [0.5, 0.35],
+        attachTo: "neck",
+      },
     },
   },
 ];
@@ -114,7 +147,9 @@ export default function App() {
   const [idleLoops, setIdleLoops] = useState<number>(0);
   const [idleFrameKeys, setIdleFrameKeys] = useState<string[]>([]);
   const [actionFrameKeys, setActionFrameKeys] = useState<string[]>([]);
-  const [equippedBySlot, setEquippedBySlot] = useState<Partial<Record<ItemSlot, string>>>({});
+  const [equippedBySlot, setEquippedBySlot] = useState<Partial<Record<ItemSlot, string>>>({
+    body: "collar-pink",
+  });
 
   const nextCharacter: Character = useMemo(() => {
     const activeIndex = CHARACTER_ROTATION.indexOf(activeCharacter);
@@ -152,6 +187,7 @@ export default function App() {
           y: placement.y,
           scaleMultiplier: placement.scaleMultiplier,
           anchor: placement.anchor,
+          tint: item.tint,
           attachTo: placement.attachTo,
         };
       });

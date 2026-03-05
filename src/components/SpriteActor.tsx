@@ -9,6 +9,7 @@ type AnchorPoint = {
 
 type AttachmentHints = {
   head: AnchorPoint;
+  neck: AnchorPoint;
   body: AnchorPoint;
 };
 
@@ -74,6 +75,14 @@ function normalizedPointToLocal(point: AnchorPoint, width: number, height: numbe
   };
 }
 
+function deriveNeckHint(head: AnchorPoint, body: AnchorPoint): AnchorPoint {
+  // Blend toward the torso to stabilize collars at the neckline across animations.
+  return {
+    x: Math.round(head.x + (body.x - head.x) * 0.35),
+    y: Math.round(head.y + (body.y - head.y) * 0.58),
+  };
+}
+
 function detectHintsFromTexture(texture: PIXI.Texture): AttachmentHints {
   const frameWidth = Math.max(1, Math.round(texture.frame.width));
   const frameHeight = Math.max(1, Math.round(texture.frame.height));
@@ -83,7 +92,11 @@ function detectHintsFromTexture(texture: PIXI.Texture): AttachmentHints {
 
   const source = (texture.baseTexture.resource as { source?: CanvasImageSource }).source;
   if (!source || typeof document === "undefined") {
-    return { head: fallbackHead, body: fallbackBody };
+    return {
+      head: fallbackHead,
+      neck: deriveNeckHint(fallbackHead, fallbackBody),
+      body: fallbackBody,
+    };
   }
 
   const canvas = document.createElement("canvas");
@@ -91,7 +104,11 @@ function detectHintsFromTexture(texture: PIXI.Texture): AttachmentHints {
   canvas.height = frameHeight;
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
   if (!ctx) {
-    return { head: fallbackHead, body: fallbackBody };
+    return {
+      head: fallbackHead,
+      neck: deriveNeckHint(fallbackHead, fallbackBody),
+      body: fallbackBody,
+    };
   }
 
   ctx.clearRect(0, 0, frameWidth, frameHeight);
@@ -125,7 +142,11 @@ function detectHintsFromTexture(texture: PIXI.Texture): AttachmentHints {
     }
 
     if (maxX < minX || maxY < minY) {
-      return { head: fallbackHead, body: fallbackBody };
+      return {
+        head: fallbackHead,
+        neck: deriveNeckHint(fallbackHead, fallbackBody),
+        body: fallbackBody,
+      };
     }
 
     const boundsHeight = maxY - minY + 1;
@@ -183,10 +204,14 @@ function detectHintsFromTexture(texture: PIXI.Texture): AttachmentHints {
           y: clamp(minY + Math.round(boundsHeight * 0.78), minY, maxY),
         };
 
-    return { head, body };
+    return { head, neck: deriveNeckHint(head, body), body };
   } catch (error) {
     console.warn("Failed to compute attachment hints from texture", error);
-    return { head: fallbackHead, body: fallbackBody };
+    return {
+      head: fallbackHead,
+      neck: deriveNeckHint(fallbackHead, fallbackBody),
+      body: fallbackBody,
+    };
   }
 }
 
@@ -211,6 +236,7 @@ export type AccessoryLayer = {
   y: number;
   scaleMultiplier?: number;
   anchor?: [number, number];
+  tint?: number;
   attachTo?: keyof AttachmentHints;
 };
 
@@ -296,9 +322,11 @@ export function SpriteActor(props: SpriteActorProps) {
         x: frameWidth / 2,
         y: frameHeight * 0.35,
       };
+      const neckHint = frameDef.attachmentHints?.neck ?? detected.neck ?? deriveNeckHint(headHint, bodyHint);
 
       hints.set(key, {
         head: normalizedPointToLocal(headHint, frameWidth, frameHeight),
+        neck: normalizedPointToLocal(neckHint, frameWidth, frameHeight),
         body: normalizedPointToLocal(bodyHint, frameWidth, frameHeight),
       });
     });
@@ -369,6 +397,7 @@ export function SpriteActor(props: SpriteActorProps) {
               y={y}
               anchor={item.anchor ?? [0.5, 1]}
               scale={scale * (item.scaleMultiplier ?? 1)}
+              tint={item.tint}
               roundPixels={true}
             />
           );
