@@ -1,43 +1,37 @@
 # Task Report
 
-Task: 72 - Set Up Python Environment
-Run: 151
+Task: 73 - Implement Directory Structure Mapping
+Run: 152
 Date: 2026-03-05
 
 ## Summary
-- Added a dedicated security-audit Python environment bootstrap script:
-  - `tools/setup_security_audit_env.py`
-  - Creates `.venv-security-audit`, installs dependencies, and verifies package
-    presence via `pip freeze`.
-- Added pinned requirements file:
-  - `tools/security_audit/requirements.txt`
-  - Includes `requests`, `flask`, and `pytest`.
-- Added npm scripts:
-  - `setup:security-audit-env`
-  - `verify:security-audit-env`
-- Updated documentation/status:
-  - `tools/README.md`
-  - `STATUS.md`
-- Updated `.gitignore` to ignore `.venv-security-audit/`.
+- Implemented a callable Python directory-structure mapper for security audit use:
+  - `tools/security_audit/directory_structure_mapper.py`
+  - Exposes `map_directory_structure(...)` API with deterministic traversal.
+  - Adds `DirectoryAccessError` for directory access failures.
+  - Provides JSON serialization and text-tree rendering helpers.
+- Added a CLI wrapper:
+  - `tools/security_audit/map_directory_structure.py`
+  - Supports `--root`, `--json`, `--max-depth`, `--include-hidden`, `--follow-symlinks`.
+- Added tests that verify expected structure output:
+  - `tools/tests/test_security_audit_directory_mapper.py`
+  - Includes acceptance check against repository root top-level structure.
+- Added security-audit tool documentation:
+  - `tools/security_audit/README.md`
 
 ## Acceptance Criteria Verification
-- Verify required libraries are installed using `pip freeze`: PASS
-  - `Flask==3.0.3`
-  - `pytest==8.3.2`
-  - `requests==2.32.3`
+- Function run and expected structure verification: PASS
+  - `test_cli_json_output_for_repository_root_matches_expected_entries` validates the mapped repository structure at top level.
+  - Deterministic ordering and counts validated by additional unit tests.
 
 ## Validation Commands Run
-- `python3 tools/setup_security_audit_env.py` -> PASS
-- `python3 tools/setup_security_audit_env.py --verify-only` -> PASS
-- `.venv-security-audit/bin/python -m pip freeze | grep -Ei '^(requests|flask|pytest)=='` -> PASS
-- `npm run test:tools` -> PASS
+- `python3 tools/security_audit/map_directory_structure.py --root /workspace --max-depth 0 --json` -> PASS
+- `python3 tools/tests/run_tools_tests.py` -> PASS
 - `npx tsc --noEmit` -> PASS
 
 ## Files Changed
-- `.gitignore` (updated)
-- `STATUS.md` (updated)
 - `TASK_REPORT.md` (updated)
-- `package.json` (updated)
-- `tools/README.md` (updated)
-- `tools/security_audit/requirements.txt` (added)
-- `tools/setup_security_audit_env.py` (added)
+- `tools/security_audit/README.md` (added)
+- `tools/security_audit/directory_structure_mapper.py` (added)
+- `tools/security_audit/map_directory_structure.py` (added)
+- `tools/tests/test_security_audit_directory_mapper.py` (added)

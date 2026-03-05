@@ -16,6 +16,10 @@ This directory contains project tooling assets used to support development and a
 - `setup_security_audit_env.py`: Bootstraps a local Python virtualenv for security audit tool dependencies and verifies with `pip freeze`.
 - `ai_news_crawler/requirements.txt`: Pinned Python dependencies for crawler and summarizer workflows.
 - `security_audit/requirements.txt`: Pinned Python dependencies for security audit workflow.
+- `security_audit/directory_structure_mapper.py`: Callable API to map a repository directory tree with deterministic ordering.
+- `security_audit/map_directory_structure.py`: CLI wrapper for directory-structure mapping output in text or JSON.
+- `security_audit/README.md`: Usage notes for security-audit mapping tools.
+- `tests/test_security_audit_directory_mapper.py`: `unittest` checks for expected directory-map behavior and repository structure output.
 - `ai_news_crawler/sources.json`: Default source list with Arxiv and additional AI news websites.
 - `ai_news_crawler/article_retriever.py`: Retrieval/parsing module for Arxiv, RSS, and HTML sources.
 - `ai_news_crawler/retrieve_articles.py`: CLI to crawl configured sources and emit normalized JSON.
@@ -79,6 +83,16 @@ npm run setup:security-audit-env
 Verify required packages via `pip freeze` (without reinstalling):
 ```bash
 npm run verify:security-audit-env
+```
+
+Map the current repository structure (text tree):
+```bash
+python3 tools/security_audit/map_directory_structure.py --root .
+```
+
+Map as JSON with top-level only:
+```bash
+python3 tools/security_audit/map_directory_structure.py --root . --json --max-depth 0
 ```
 
 Default venv location is `.venv-security-audit`. To use a custom location:
