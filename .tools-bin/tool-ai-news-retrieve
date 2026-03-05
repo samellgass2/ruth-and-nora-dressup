@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+set -euo pipefail
+exec "/workspace/.venv-ai-news/bin/python" "/workspace/tools/ai_news_crawler/retrieve_articles.py" "$@"
