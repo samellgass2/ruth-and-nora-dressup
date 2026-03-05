@@ -122,6 +122,7 @@ class DirectoryStructureMapperTests(unittest.TestCase):
             "SECURITY_AUDIT_REPORT.md",
             "STATUS.md",
             "TASK_REPORT.md",
+            "TOOLS_GUIDE.md",
             "index.html",
             "package-lock.json",
             "package.json",
