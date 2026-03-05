@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "generate:sprites": "python3 scripts/generate_pixel_atlases.py",
-    "test:tools": "python3 tools/tests/run_tools_tests.py"
+    "test:tools": "python3 tools/tests/run_tools_tests.py",
+    "setup:ai-news-env": "python3 tools/setup_ai_news_env.py",
+    "verify:ai-news-env": "python3 tools/setup_ai_news_env.py --verify-only"
   },
   "dependencies": {
     "@pixi/react": "^7.1.2",
