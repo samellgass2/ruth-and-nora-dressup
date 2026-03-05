@@ -10,6 +10,8 @@ import json
 from pathlib import Path
 from typing import Any, Iterable
 
+from tools.shared.mock_ai_service import get_shared_mock_ai_service
+
 
 class SummarizerError(RuntimeError):
     """Raised when article payload or summarization rendering is invalid."""
@@ -131,13 +133,12 @@ def load_articles_from_json_file(input_path: Path) -> list[NewsletterArticle]:
 
 def summarize_article(article: NewsletterArticle, max_sentences: int = 2) -> str:
     """Return a short summary sentence block for newsletter consumption."""
-    if article.summary:
-        sentences = [item.strip() for item in article.summary.split(".") if item.strip()]
-        selected = sentences[:max_sentences]
-        if selected:
-            return ". ".join(selected) + "."
-
-    return f"{article.title}."
+    completion = get_shared_mock_ai_service().complete_summary(
+        title=article.title,
+        source_text=article.summary,
+        max_sentences=max_sentences,
+    )
+    return completion.summary
 
 
 def group_articles_by_source(

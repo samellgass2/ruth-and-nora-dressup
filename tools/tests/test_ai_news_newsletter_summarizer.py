@@ -10,6 +10,7 @@ import tempfile
 import unittest
 from datetime import datetime, timezone
 from pathlib import Path
+from unittest.mock import MagicMock, patch
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(REPO_ROOT) not in sys.path:
@@ -121,6 +122,33 @@ class AiNewsNewsletterSummarizerTests(unittest.TestCase):
         summarized = summarize_article(article)
 
         self.assertEqual(summarized, "Fallback headline.")
+
+    def test_summarize_article_uses_shared_mock_ai_service(self) -> None:
+        article = NewsletterArticle(
+            source_id="sample",
+            source_name="Sample",
+            title="Delegation test",
+            url="https://example.com/delegation",
+            published_at=datetime(2026, 3, 5, 12, 0, tzinfo=timezone.utc),
+            summary="Original article text.",
+            authors=tuple(),
+        )
+        mock_completion = MagicMock(summary="Delegated summary.")
+        mock_service = MagicMock()
+        mock_service.complete_summary.return_value = mock_completion
+
+        with patch(
+            "tools.ai_news_crawler.newsletter_summarizer.get_shared_mock_ai_service",
+            return_value=mock_service,
+        ):
+            summarized = summarize_article(article, max_sentences=3)
+
+        self.assertEqual(summarized, "Delegated summary.")
+        mock_service.complete_summary.assert_called_once_with(
+            title="Delegation test",
+            source_text="Original article text.",
+            max_sentences=3,
+        )
 
     def test_group_articles_by_source_sorts_and_limits(self) -> None:
         articles = load_articles_payload(SAMPLE_PAYLOAD)

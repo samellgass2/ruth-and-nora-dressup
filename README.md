@@ -35,6 +35,16 @@ Type-check only:
 npm run typecheck
 ```
 
+Set up all Python tool environments and local shim commands:
+```bash
+npm run setup:python-tools
+```
+
+Verify Python tool environments (without reinstalling):
+```bash
+npm run verify:python-tools
+```
+
 Regenerate pixelized atlases from source repacked sheets:
 ```bash
 npm run generate:sprites
@@ -104,6 +114,12 @@ Asset workflow:
 - Treat source repacked sheets as editable inputs.
 - Regenerate runtime atlases via `npm run generate:sprites` after source updates.
 - Add new items under `public/items` and register config entries in `App`.
+
+Python tooling workflow:
+- Run `npm run setup:python-tools` to provision `.venv-ai-news` and `.venv-security-audit`.
+- The script creates local command shims in `.tools-bin/`.
+- Add shims to your shell path:
+  `export PATH="$PWD/.tools-bin:$PATH"`
 
 ## Future Aspirations
 Near-term:

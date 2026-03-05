@@ -14,6 +14,7 @@ This directory contains project tooling assets used to support development and a
 - `generate_db_column_map.py`: CLI that runs a DB column operation and returns map-like output.
 - `setup_ai_news_env.py`: Bootstraps a local Python virtualenv for AI news crawling/summarization dependencies and verifies with `pip freeze`.
 - `setup_security_audit_env.py`: Bootstraps a local Python virtualenv for security audit tool dependencies and verifies with `pip freeze`.
+- `shared/mock_ai_service.py`: Shared deterministic mock AI service used by AI-news summarization tooling.
 - `ai_news_crawler/requirements.txt`: Pinned Python dependencies for crawler and summarizer workflows.
 - `security_audit/requirements.txt`: Pinned Python dependencies for security audit workflow.
 - `security_audit/directory_structure_mapper.py`: Callable API to map a repository directory tree with deterministic ordering.
@@ -37,6 +38,23 @@ This directory contains project tooling assets used to support development and a
 - `tests/test_db_column_map.py`: `unittest` checks for DB operation map output.
 - `tests/test_ai_news_article_retriever.py`: `unittest` checks article retrieval and source config parsing.
 - `tests/run_tools_tests.py`: Unified test runner for all tools Python tests.
+
+## Unified Python Tool Setup
+Use the repository Bash setup script to configure both tool environments and
+create local executable shims:
+```bash
+bash scripts/setup_python_tools.sh
+```
+
+Verify only (no package reinstall):
+```bash
+bash scripts/setup_python_tools.sh --verify-only
+```
+
+By default, shims are created in `.tools-bin`. Add them to `PATH`:
+```bash
+export PATH="$PWD/.tools-bin:$PATH"
+```
 
 ## Item Similarity Tool
 Create the sample DB:
