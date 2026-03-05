@@ -3,145 +3,84 @@
 Date: 2026-03-05
 Project: ruth-and-nora-dress-up
 Workflow: Research Agent for AI Stories
-Task: 63 - Update STATUS.md
+Task: 65 - Update STATUS.md and README.md
 
 ## Scope of This Update
 
-This status document is updated to reflect the latest completed research outputs in this repository:
+Task 65 updates documentation for the repository's tooling layer and records progress for Workflow Task 6.
 
-- `research/ai-trends-2026.md` (Task 60)
-- `research/major-ai-stories-2026.md` (Task 61)
-- `research/major-ai-stories-2026-summaries.md` (Task 62)
+Updated artifacts:
 
-The purpose of Task 63 is to consolidate those artifacts into a single, accurate status view.
+- `STATUS.md` (this file)
+- `README.md` (repository root)
 
-## Latest Research Snapshot
+## Workflow Progress (Task 6 Focus)
 
-### Task 60: AI Trends (2025-2026)
+Task 6 in the current workflow run corresponds to Task ID 65.
 
-Current trend set identified from primary/institutional sources:
+Task 6 progress:
 
-1. Agentic AI is moving from chat to action-oriented workflows.
-2. Reasoning-focused models are a leading capability frontier.
-3. Multimodal-native systems are becoming default architecture.
-4. Very long context windows are becoming practical for enterprise use.
-5. Model quality is rising while cost/efficiency barriers are falling.
-6. Enterprise AI adoption is broad, but value capture remains uneven.
-7. AI-assisted software development is baseline for many teams.
-8. On-device AI is entering mainstream hardware planning cycles.
-9. Infrastructure industrialization and localization are strategic priorities.
-10. Governance is moving from policy drafting to enforcement/compliance.
-11. Energy/grid impact from AI data centers is now first-order.
+- Documentation review completed: PASS
+- `STATUS.md` updated with Task 6 progress: PASS
+- Root `README.md` revised for tools directory coverage: PASS
+- Validation commands executed: PASS
 
-Status: COMPLETE
+Current Task 6 state: COMPLETE
 
-### Task 61: Selection of 5 Major AI Stories
+## Task 6 Progress Detail (Task ID 65)
 
-From the 11-trend set, five high-impact stories were selected using explicit criteria (broad impact, credible sourcing, and diversity across domains):
+### Objective
 
-1. Agentic and reasoning AI entered mainstream flagship model releases.
-2. Enterprise AI adoption broadened, but ROI scaling remains the bottleneck.
-3. EU AI Act moved governance into live compliance timelines.
-4. AI infrastructure industrialized around Blackwell-era supply dynamics.
-5. AI data-center energy demand became a system-level planning issue.
+- Reflect Task 6 progress in `STATUS.md`.
+- Revise root `README.md` so tools directory usage is clear from top-level project documentation.
 
-Status: COMPLETE
+### Work Completed
 
-### Task 62: Story Summaries Drafted
+- Added explicit Task 6 progress section in this status document.
+- Reworked root `README.md` structure to include:
+  - Project overview and stack summary
+  - App development commands
+  - Dedicated tools directory section
+  - Tool command quickstart
+  - File map for tool scripts, samples, and tests
 
-Summaries were produced for all five stories with concise narrative framing and validated word counts.
+### Evidence Basis
 
-- Story 1 summary: 167 words
-- Story 2 summary: 165 words
-- Story 3 summary: 164 words
-- Story 4 summary: 162 words
-- Story 5 summary: 155 words
+The README tool updates reflect files currently present under `tools/`:
 
-All summaries are within the required 150-200 word range.
+- `find_similar_item_names.py`
+- `generate_db_column_map.py`
+- `samples/create_item_similarity_sample_db.py`
+- `samples/item_similarity_sample_config.json`
+- `tests/run_tools_tests.py`
+- `tests/test_item_name_similarity.py`
+- `tests/test_db_column_map.py`
+- `tools/README.md`
+- `tools/DESIGN.md`
 
-Status: COMPLETE
+## Validation
 
-## Consolidated Findings
+Executed checks:
 
-### Finding 1: Product direction has shifted from single-response generation to multi-step execution
+- `npx tsc --noEmit`
+- `npm run test:tools`
 
-The model race is no longer primarily about one-turn response fluency. Leading releases now emphasize planning, tool use, and controllable reasoning depth. This changes how products are built and evaluated, because teams must optimize for task completion reliability across chained actions.
+Both checks pass for this task update.
 
-Implication:
+## Acceptance Test Check (Task 65)
 
-- Product and platform roadmaps should prioritize orchestration, observability, and guardrails for multi-step behavior.
+Requirement 1: `STATUS.md` reflects task 6 progress.
 
-### Finding 2: Adoption is no longer the main enterprise challenge; operationalization is
+- Includes explicit Task 6 progress section and completion state: PASS
 
-Enterprise usage has expanded significantly, but conversion into durable EBIT impact remains inconsistent. The dominant constraints are implementation quality, workflow integration, governance overhead, and change management.
+Requirement 2: `README.md` is updated accordingly.
 
-Implication:
-
-- Teams need KPI-linked operating models and workflow ownership, not just broad model access.
-
-### Finding 3: Governance has become an implementation constraint, not a future planning topic
-
-The EU AI Act timeline represents active compliance phases, requiring concrete controls and documentation readiness. Governance decisions now directly influence architecture and go-to-market timelines.
-
-Implication:
-
-- Compliance design should be treated as a core engineering and operations stream.
-
-### Finding 4: Compute availability is shaped by industrial capacity and supply-chain execution
-
-AI competitiveness now depends heavily on manufacturing throughput, packaging, deployment logistics, and regional supply resilience. Infrastructure constraints can cap model and product ambitions.
-
-Implication:
-
-- Strategy should account for compute procurement and supply stability as first-class dependencies.
-
-### Finding 5: Energy is now a co-equal planning dimension for AI scale
-
-As AI data-center demand grows, power availability, reliability, and price increasingly affect feasible expansion. AI planning intersects directly with grid and energy policy realities.
-
-Implication:
-
-- Capacity planning must include power strategy, not just hardware and model economics.
-
-## Source Traceability
-
-Primary source mapping retained in research artifacts:
-
-- OpenAI announcements (`o3/o4-mini`, `ChatGPT agent`)
-- Anthropic (`Claude 3.7 Sonnet`, context windows docs)
-- Google DeepMind (`Gemini 2.0` agentic framing)
-- McKinsey (`State of AI in 2025`)
-- European Commission + EU AI Act Service Desk timeline
-- NVIDIA Blackwell/manufacturing updates
-- IEA (`Energy and AI`)
-- Stanford HAI (`AI Index 2025`)
-- GitHub Octoverse 2025 update
-- Gartner AI PC forecast
-- DeepSeek-R1 arXiv paper
-
-All links are preserved in:
-
-- `research/ai-trends-2026.md`
-- `research/major-ai-stories-2026.md`
-
-## Acceptance Test Check (Task 63)
-
-Requirement: `STATUS.md` reflects the latest research and summaries accurately.
-
-Verification:
-
-- Includes trend baseline from Task 60: PASS
-- Includes selected major-story set from Task 61: PASS
-- Includes summary completion and word-count validation from Task 62: PASS
-- Maintains clear traceability to repository research files: PASS
+- Root README includes a dedicated tools overview and usage commands aligned to current repository tooling files: PASS
 
 Result: PASS
 
-## Current Repository State (Research Workflow)
+## Current Repository State (Task Scope)
 
-- Trend research artifact: present and complete
-- Story selection artifact: present and complete
-- Story summaries artifact: present and complete
-- Consolidated status artifact (`STATUS.md`): updated in this task
+- Task 6 documentation update (`STATUS.md` + root `README.md`): COMPLETE
 
-Overall status: COMPLETE for Task 63 scope.
+Overall status for Task 65 scope: COMPLETE.
