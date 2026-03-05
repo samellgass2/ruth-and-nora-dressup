@@ -1,3 +1,18 @@
+# Task 78 - Bash Python Tool Setup
+
+Date: 2026-03-05 (UTC)
+Workflow: Audit and Tool Setup for Ruth and Nora Dress Up
+
+## Delivered
+- Added `scripts/setup_python_tools.sh` as a unified Bash entrypoint for Python tool setup.
+- Script supports setup and verify-only modes, configurable venv/shim paths, and selective environment skipping.
+- Script verifies key Python CLIs are invokable after setup.
+- Script creates local command shims in `.tools-bin/` for direct tool execution.
+- Added npm aliases:
+  - `npm run setup:python-tools`
+  - `npm run verify:python-tools`
+- Updated documentation in `README.md` and `tools/README.md` with usage and PATH guidance.
+
 # QA Validation Summary - Workflow #8
 
 Date: 2026-03-05 (UTC)

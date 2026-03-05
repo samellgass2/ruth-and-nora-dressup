@@ -38,6 +38,23 @@ This directory contains project tooling assets used to support development and a
 - `tests/test_ai_news_article_retriever.py`: `unittest` checks article retrieval and source config parsing.
 - `tests/run_tools_tests.py`: Unified test runner for all tools Python tests.
 
+## Unified Python Tool Setup
+Use the repository Bash setup script to configure both tool environments and
+create local executable shims:
+```bash
+bash scripts/setup_python_tools.sh
+```
+
+Verify only (no package reinstall):
+```bash
+bash scripts/setup_python_tools.sh --verify-only
+```
+
+By default, shims are created in `.tools-bin`. Add them to `PATH`:
+```bash
+export PATH="$PWD/.tools-bin:$PATH"
+```
+
 ## Item Similarity Tool
 Create the sample DB:
 ```bash
