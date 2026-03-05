@@ -1,39 +1,47 @@
 # Task Report
 
-Task: 59 - Set up testing tools for Python script
-Run: 133
+Task: 67 - Set Up Environment for AI News Crawler
+Run: 146
 Date: 2026-03-05
 
 ## Summary
-- Added `tools/generate_db_column_map.py`, a new SQLite CLI that accepts `table`, `column`, and `operation`, and returns map-like output in text or JSON.
-- Supported operations: `value_counts`, `count`, `count_distinct`, `min`, `max`, `sum`, `avg`.
-- Added robust validation and explicit non-zero exit codes for invalid identifiers, unsupported operations, DB connection failures, and query failures.
-- Set up a proper Python test harness under `tools/tests` using `unittest` discovery:
-  - `tools/tests/run_tools_tests.py`
-  - Refactored `tools/tests/test_item_name_similarity.py` into unittest-based checks.
-  - Added `tools/tests/test_db_column_map.py` for the new tool.
-- Added npm script `test:tools` to run the Python tools test suite.
-- Updated tooling docs in `tools/README.md` and validation guidance in `tools/DESIGN.md`.
+- Added pinned Python dependency manifest for the AI news crawler/summarizer workflow at `tools/ai_news_crawler/requirements.txt`.
+- Added `tools/setup_ai_news_env.py` to:
+  - create a local virtual environment (`.venv-ai-news` by default),
+  - install required packages,
+  - verify installation by parsing `pip freeze` output and ensuring all required packages are present.
+- Added npm scripts:
+  - `npm run setup:ai-news-env`
+  - `npm run verify:ai-news-env`
+- Updated tooling docs in `tools/README.md` with setup and verification commands.
+- Updated `.gitignore` to exclude local Python env/cache artifacts.
 
-## Acceptance Criteria
-- Tools are successfully set up and can execute tests on the Python script: PASS
-  - `python3 tools/tests/run_tools_tests.py` runs and passes all tools tests.
-  - `npm run test:tools` runs and passes all tools tests.
-- Additional tool can take a DB table, column name, and operation, and produce expected output: PASS
-  - Verified with `--table items --column is_active --operation value_counts --json`.
-  - Verified with `--table items --column name --operation count --json`.
+## Required Packages Configured
+- `beautifulsoup4==4.13.4`
+- `feedparser==6.0.11`
+- `httpx==0.28.1`
+- `lxml==5.4.0`
+- `openai==2.6.1`
+- `pydantic==2.11.7`
+- `python-dateutil==2.9.0.post0`
+- `python-dotenv==1.1.1`
+- `tenacity==9.1.2`
 
-## Validation Performed
-- `python3 tools/tests/run_tools_tests.py`: PASS
+## Acceptance Criteria Verification
+- Environment is set up with necessary libraries/dependencies for AI news crawler: PASS
+  - Executed `npm run setup:ai-news-env` successfully.
+- Verify packages installed with `pip freeze` or `npm list`: PASS
+  - Executed `npm run verify:ai-news-env` (internally validates `pip freeze`).
+  - Executed direct freeze command `.venv-ai-news/bin/python -m pip freeze` and confirmed required packages.
+
+## Additional Validation
 - `npm run test:tools`: PASS
 - `npx tsc --noEmit`: PASS
 
 ## Files Changed
+- `.gitignore`
 - `package.json`
-- `tools/DESIGN.md`
 - `tools/README.md`
-- `tools/generate_db_column_map.py`
-- `tools/tests/run_tools_tests.py`
-- `tools/tests/test_db_column_map.py`
-- `tools/tests/test_item_name_similarity.py`
+- `tools/ai_news_crawler/requirements.txt`
+- `tools/setup_ai_news_env.py`
 - `TASK_REPORT.md`
